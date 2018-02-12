@@ -1,0 +1,176 @@
+﻿.box-txt h2 {
+    color: #70abaf;
+}
+
+.logo {
+    height: 30px;
+    width: 30px;
+    margin-right: 20px;
+    margin-top: -4px;
+}
+
+.navbar {
+    background-color: #70abaf !important;
+    border: 2px solid #70abaf !important;
+}
+
+.nav li a {
+    color: #fff !important;
+}
+
+.default-jumbotron {
+    background-image: url("../images/banner-img.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #f0f7f4;
+    height: 45vh;
+}
+
+.footer-details {
+    margin-top: 5vh;
+    background-color: #70abaf;
+    color: #fff;
+    padding: 3vh 15vh;
+    height: 30vh;
+    width: 100%;
+    overflow: hidden;
+    left: 0;
+    position: absolute;
+}
+
+.footer-details a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-details a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-content {
+    margin-bottom: 10vh;
+}
+
+.box-img {
+    height: 20vh;
+    background-position: center;
+    background-size: cover;
+}
+
+#laptop-img {
+    background-image: url("../images/winbook.png");
+}
+
+#desktop-img {
+    background-image: url("../images/winbook_desktop.png");
+    background-size: 50%;
+    background-position-y: top;
+    background-repeat: no-repeat;
+}
+
+#map-img {
+    background-image: url("../images/map.jpg");
+}
+
+/** SHOP PAGE **/
+
+.shop-main {
+    height: 80vh;
+    margin-top: 30px;
+}
+
+.shop-page-sec {
+    padding: 20px;
+    height: 30vh;
+    margin: 0 auto;
+}
+
+.shop-page-sec a:hover {
+    text-decoration: none;
+}
+.shop-box {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+}
+
+.shop-page-image {
+    height: 30vh;
+    width: 100%;
+}
+
+.shop-box-details {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#laptop-shop-page {
+    background-image: url("../images/winbook.png");
+    background-size: cover;
+    background-position: center;
+    width: 80%;
+}
+
+#desktop-shop-page {
+    background-image: url("../images/winbook_desktop.png");
+    background-size: cover;
+    background-position: top;
+    width: 50%;
+}
+
+/** Shop_Laptop and Shop_Desktop**/
+.shop-dropdown {
+    width: 70%;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.shop-disp-image {
+    margin-top: 30px;
+}
+
+.shop-form-main {
+    height: 70vh;
+}
+
+/* LOCATION */
+
+.location-title {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.location-main {
+    margin-top: 5px;
+    padding: 5vh;
+    height: 70vh;
+}
+
+.location-details {
+    margin-top: 15px;
+}
+
+/* DEALS */
+
+.deals-main {
+    height: 60vh;
+}
+
+.deals-coupon {
+    background-color: #f0f7f4;
+    padding: 2vh 5vh;
+    margin-top: 5vh;
+    border-radius: 4px;
+}
+
+/** LOG-IN **/
+
+.login-main {
+    margin-top: 3vh;
+    margin-bottom: 20vh;
+}
