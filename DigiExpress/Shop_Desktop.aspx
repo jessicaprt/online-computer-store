@@ -14,6 +14,11 @@
         </div>
         
         <div class="col-md-4">
+            <p>Video Card:</p>
+            <p>
+                <asp:DropDownList ID="VideoCard" runat="server" CssClass="shop-dropdown">
+                </asp:DropDownList>
+            </p>
             <p>Processor:</p>
             <p>
                 <asp:DropDownList ID="Processor" runat="server" CssClass="shop-dropdown">
@@ -32,7 +37,11 @@
                 </asp:DropDownList>
             </p>
             <p>
-                &nbsp;</p>
+                Operating System:</p>
+            <p>
+                <asp:DropDownList ID="OperatingSystem" runat="server" CssClass="shop-dropdown">
+                </asp:DropDownList>
+            </p>
             <p>
                 <asp:Button ID="SubmitButton" runat="server" Text="Submit" CssClass="btn btn-default"/>
             </p>
