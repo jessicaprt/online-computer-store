@@ -11,6 +11,12 @@ namespace DigiExpress
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ScreenSize.Items.Clear();
+            Processor.Items.Clear();
+            RamSize.Items.Clear();
+            SsdCapacity.Items.Clear();
+            OperatingSystem.Items.Clear();
+
             ScreenSize.Items.Add(
                 new ListItem(
                     "12-inch Retina display",
@@ -83,6 +89,21 @@ namespace DigiExpress
                 new ListItem(
                     "1TB SSD",
                     "1TB"));
+
+            OperatingSystem.Items.Add(
+                new ListItem(
+                    "Windows 10",
+                    "Windows"));
+
+            OperatingSystem.Items.Add(
+                new ListItem(
+                    "Mac OSX",
+                    "Mac"));
+
+            OperatingSystem.Items.Add(
+                new ListItem(
+                    "Linux",
+                    "Linux"));
 
         }
     }

@@ -11,6 +11,32 @@ namespace DigiExpress
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            VideoCard.Items.Clear();
+            Processor.Items.Clear();
+            RamSize.Items.Clear();
+            SsdCapacity.Items.Clear();
+            OperatingSystem.Items.Clear();
+
+            VideoCard.Items.Add(
+                new ListItem(
+                    "GTX 970",
+                    "970"));
+
+            VideoCard.Items.Add(
+                new ListItem(
+                    "GTX 1070",
+                    "1070"));
+
+            VideoCard.Items.Add(
+                new ListItem(
+                    "GTX 1080",
+                    "1080"));
+
+            VideoCard.Items.Add(
+                new ListItem(
+                    "GTX 1080 TI",
+                    "1080 TI"));
+
             Processor.Items.Add(
                 new ListItem(
                     "Intel Core i3",
@@ -63,6 +89,21 @@ namespace DigiExpress
                 new ListItem(
                     "1TB SSD",
                     "1TB"));
+
+            OperatingSystem.Items.Add(
+                new ListItem(
+                    "Windows 10",
+                    "Windows"));
+
+            OperatingSystem.Items.Add(
+                new ListItem(
+                    "Mac OSX",
+                    "Mac"));
+
+            OperatingSystem.Items.Add(
+                new ListItem(
+                    "Linux",
+                    "Linux"));
 
         }
     }
