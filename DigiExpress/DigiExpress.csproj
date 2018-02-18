@@ -378,7 +378,7 @@
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Controllers\LaptopPartsController.cs" />
+    <Compile Include="Controllers\ComputerPartsController.cs" />
     <Compile Include="DatabaseUtils.cs" />
     <Compile Include="Deals.aspx.cs">
       <DependentUpon>Deals.aspx</DependentUpon>
@@ -390,7 +390,7 @@
     <Compile Include="Models\Computers.cs" />
     <Compile Include="Models\Desktop.cs" />
     <Compile Include="Models\Laptop.cs" />
-    <Compile Include="Models\LaptopParts.cs" />
+    <Compile Include="Models\ComputerParts.cs" />
     <Compile Include="Models\PartType.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Shop_Desktop.aspx.cs">

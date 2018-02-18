@@ -5,7 +5,7 @@ using System.Web;
 
 namespace DigiExpress.Models
 {
-    public class LaptopParts
+    public class ComputerParts
     {
         public string TypeName { get; set; }
         public int Id { get; set; }

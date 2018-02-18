@@ -8,12 +8,12 @@ using DigiExpress.Models;
 
 namespace DigiExpress.Controllers
 {
-    public class LaptopPartsController
+    public class ComputerPartsController
     {
-        public static List<LaptopParts> GetLaptopPart(SqlConnection connection, string query)
+        public static List<ComputerParts> GetLaptopPart(SqlConnection connection, string query)
         {
 
-            List<LaptopParts> screenSizes = new List<LaptopParts>();
+            List<ComputerParts> screenSizes = new List<ComputerParts>();
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -24,7 +24,7 @@ namespace DigiExpress.Controllers
                 {
                     while (reader.Read())
                     {
-                        LaptopParts curr = new LaptopParts();
+                        ComputerParts curr = new ComputerParts();
 
                         curr.TypeName = reader.GetString(0);
                         curr.Id = reader.GetInt32(1);

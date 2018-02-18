@@ -43,12 +43,14 @@
                 </asp:DropDownList>
             </p>
             <p>
-                <asp:Button ID="SubmitButton" runat="server" Text="Submit" CssClass="btn btn-default"/>
+                <asp:Button ID="SubmitButton" runat="server" Text="Submit" onclick="CalculateTotal" CssClass="btn btn-default"/>
             </p>
         </div>
         <div class="col-md-4">
             <h3>Total:</h3>
-            <p id="final-price">$ 0,000.00</p>
+            <asp:label id="TotalPrice"
+                       runat="server">
+            </asp:label>
         </div>
     </div>
 </asp:Content>
