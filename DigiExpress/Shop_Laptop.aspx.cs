@@ -15,22 +15,29 @@ namespace DigiExpress
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection connection = DatabaseUtils.CreateConnection();
-            connection.Open();
+            if (!Page.IsPostBack)
+            {
+                SqlConnection connection = DatabaseUtils.CreateConnection();
+                connection.Open();
 
-            ScreenSize.Items.Clear();
-            Processor.Items.Clear();
-            RamSize.Items.Clear();
-            SsdCapacity.Items.Clear();
-            OperatingSystem.Items.Clear();
+                ScreenSize.Items.Clear();
+                Processor.Items.Clear();
+                RamSize.Items.Clear();
+                SsdCapacity.Items.Clear();
+                OperatingSystem.Items.Clear();
 
-            LoadScreenSizes(connection);
-            LoadProcessors(connection);
-            LoadRam(connection);
-            LoadSsd(connection);
-            LoadOs(connection);
-                        
-            connection.Close();
+                LoadScreenSizes(connection);
+                LoadProcessors(connection);
+                LoadRam(connection);
+                LoadSsd(connection);
+                LoadOs(connection);
+                connection.Close();
+            }
+        }
+
+        private void ScreenSize_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TotalPrice.Text = ScreenSize.SelectedValue;
         }
 
         public void LoadScreenSizes(SqlConnection connection)

@@ -12,7 +12,7 @@ namespace DigiExpress
     {
         public static void CreateCommand(string queryString, SqlConnection connection)
         {
-            SqlCommand command = new SqlCommand(queryString, connection);
+            var command = new SqlCommand(queryString, connection);
             command.Connection.Open();
         }
 

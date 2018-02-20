@@ -8,7 +8,7 @@ namespace DigiExpress.Models
     public class User
     {
         public int Id { get; set; }
-        public int UserName { get; set; }
-        public int Password { get; set; }
+        public String UserName { get; set; }
+        public String Password { get; set; }
     }
 }

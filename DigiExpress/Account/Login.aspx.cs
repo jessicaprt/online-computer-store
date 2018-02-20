@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Activities.Statements;
+using System.Data.SqlClient;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
+using System.Windows.Forms;
+using DigiExpress.Controllers;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
@@ -13,47 +18,37 @@ namespace DigiExpress.Account
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterHyperLink.NavigateUrl = "Register";
-            // Enable this once you have account confirmation enabled for password reset functionality
-            //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
-            OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
-            var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-            if (!String.IsNullOrEmpty(returnUrl))
-            {
-                RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
-            }
+            InvalidLogin.Text = "";
         }
 
         protected void LogIn(object sender, EventArgs e)
         {
             if (IsValid)
             {
-                // Validate the user password
-                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
+                var connection = DatabaseUtils.CreateConnection();
 
-                // This doen't count login failures towards account lockout
-                // To enable password failures to trigger lockout, change to shouldLockout: true
-                var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
+                connection.Open();
 
-                switch (result)
+                var currentUsername = Username.Text;
+                var currentPassword = Password.Text;
+
+                var userQuery = $"SELECT username FROM dbo.de_user WHERE username = '{currentUsername}' and password = {currentPassword}";
+
+                var getUser = LoginController.GetUserName(connection, userQuery);
+                
+
+                if ( (getUser == "") || (getUser == null) )
                 {
-                    case SignInStatus.Success:
-                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                        break;
-                    case SignInStatus.LockedOut:
-                        Response.Redirect("/Account/Lockout");
-                        break;
-                    case SignInStatus.RequiresVerification:
-                        Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}", 
-                                                        Request.QueryString["ReturnUrl"],
-                                                        RememberMe.Checked),
-                                          true);
-                        break;
-                    case SignInStatus.Failure:
-                    default:
-                        FailureText.Text = "Invalid login attempt";
-                        ErrorMessage.Visible = true;
-                        break;
+                    InvalidLogin.Text = "Invalid Login!";
+                }
+                else
+                {
+                    Session["username"] = getUser;
+                    Response.BufferOutput = true;
+
+                    FormsAuthentication.RedirectFromLoginPage(Username.Text, true);
+
+                    Response.Redirect("../");
                 }
             }
         }

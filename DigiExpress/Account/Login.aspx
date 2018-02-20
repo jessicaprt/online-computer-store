@@ -16,12 +16,15 @@
                             <asp:Literal runat="server" ID="FailureText" />
                         </p>
                     </asp:PlaceHolder>
+                    <asp:Label runat="server" ID="InvalidLogin">
+                        <p class="text-danger"></p>
+                    </asp:Label>
                     <div class="form-group">
-                        <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
+                        <asp:Label runat="server" CssClass="col-md-2 control-label">Username</asp:Label>
                         <div class="col-md-10">
-                            <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Email"
-                                CssClass="text-danger" ErrorMessage="The email field is required." />
+                            <asp:TextBox runat="server" ID="Username" CssClass="form-control" />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Username"
+                                CssClass="text-danger" ErrorMessage="The username field is required." />
                         </div>
                     </div>
                     <div class="form-group">

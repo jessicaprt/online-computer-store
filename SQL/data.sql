@@ -85,7 +85,7 @@ INSERT INTO de_partType VALUES ('videocard', 2);
 INSERT INTO de_partType VALUES ('processor', 3);
 INSERT INTO de_partType VALUES ('ram', 3);
 INSERT INTO de_partType VALUES ('ssd', 3);
-INSERT INTO de_partType VpartsALUES ('OS', 3);
+INSERT INTO de_partType VALUES ('OS', 3);
 
 INSERT INTO de_parts VALUES ('screen', 1, '12-inch Retina display', '12-inch', 60);
 INSERT INTO de_parts VALUES ('screen', 1, '13-inch Retina display', '13-inch', 70);
