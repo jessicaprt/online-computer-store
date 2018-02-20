@@ -13,7 +13,7 @@ namespace DigiExpress.Controllers
         public static List<ComputerParts> GetLaptopPart(SqlConnection connection, string query)
         {
 
-            List<ComputerParts> screenSizes = new List<ComputerParts>();
+            List<ComputerParts> parts = new List<ComputerParts>();
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -32,13 +32,13 @@ namespace DigiExpress.Controllers
                         curr.ShortName = reader.GetString(3);
                         curr.Price = reader.GetInt32(4);
 
-                        screenSizes.Add(curr);
+                        parts.Add(curr);
                     }
                 }
             }
                 
 
-            return screenSizes;
+            return parts;
 
         }
     }

@@ -185,6 +185,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Content\style.css" />
     <Content Include="images\map.jpg" />
     <Content Include="images\winbook_desktop.png" />
@@ -293,6 +294,13 @@
     </Compile>
     <Compile Include="Account\Forgot.aspx.designer.cs">
       <DependentUpon>Forgot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\OpenAuthProviders.ascx.designer.cs">
+      <DependentUpon>OpenAuthProviders.ascx</DependentUpon>
     </Compile>
     <Compile Include="Account\Lockout.aspx.cs">
       <DependentUpon>Lockout.aspx</DependentUpon>

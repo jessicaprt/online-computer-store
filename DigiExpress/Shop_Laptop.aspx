@@ -62,7 +62,7 @@
                         </asp:DropDownList>
                     </p>
                     <p>
-                        <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClientClick="return false;" onclick="CalculateTotal" CssClass="btn btn-default"/>
+                        <asp:Button ID="SubmitButton" runat="server" Text="Add To Cart" OnClientClick="return false;" onclick="AddToCart" CssClass="btn btn-default"/>
                     </p>
                 </div>
                 <div class="col-md-4">

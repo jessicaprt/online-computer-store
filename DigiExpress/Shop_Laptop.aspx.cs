@@ -13,6 +13,12 @@ namespace DigiExpress
 {
     public partial class Shop_Laptop : Page
     {
+        private List<ComputerParts> _screenSizes;
+        private List<ComputerParts> _processors;
+        private List<ComputerParts> _rams;
+        private List<ComputerParts> _ssds;
+        private List<ComputerParts> _osi;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -31,22 +37,18 @@ namespace DigiExpress
                 LoadRam(connection);
                 LoadSsd(connection);
                 LoadOs(connection);
+                CalculateTotal();
                 connection.Close();
             }
-        }
-
-        private void ScreenSize_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            TotalPrice.Text = ScreenSize.SelectedValue;
         }
 
         public void LoadScreenSizes(SqlConnection connection)
         {
 
             string screenSizeQuery = "SELECT * FROM dbo.de_parts where typename = 'screen'";
-            List<ComputerParts> screenSizes = ComputerPartsController.GetLaptopPart(connection, screenSizeQuery);
+            _screenSizes = ComputerPartsController.GetLaptopPart(connection, screenSizeQuery);
 
-            foreach (var screenSize in screenSizes)
+            foreach (var screenSize in _screenSizes)
             {
                 ScreenSize.Items.Add(
                     new ListItem(
@@ -59,9 +61,9 @@ namespace DigiExpress
         {
 
             string processorQuery = "SELECT * FROM dbo.de_parts where typename = 'processor'";
-            List<ComputerParts> processors = ComputerPartsController.GetLaptopPart(connection, processorQuery);
+            _processors = ComputerPartsController.GetLaptopPart(connection, processorQuery);
 
-            foreach (var processor in processors)
+            foreach (var processor in _processors)
             {
                 Processor.Items.Add(
                     new ListItem(
@@ -74,9 +76,9 @@ namespace DigiExpress
         {
 
             string ramQuery = "SELECT * FROM dbo.de_parts where typename = 'ram'";
-            List<ComputerParts> rams = ComputerPartsController.GetLaptopPart(connection, ramQuery);
+            _rams = ComputerPartsController.GetLaptopPart(connection, ramQuery);
 
-            foreach (var ram in rams)
+            foreach (var ram in _rams)
             {
                 RamSize.Items.Add(
                     new ListItem(
@@ -89,9 +91,9 @@ namespace DigiExpress
         {
 
             string ssdQuery = "SELECT * FROM dbo.de_parts where typename = 'ssd'";
-            List<ComputerParts> ssds = ComputerPartsController.GetLaptopPart(connection, ssdQuery);
+            _ssds = ComputerPartsController.GetLaptopPart(connection, ssdQuery);
 
-            foreach (var ssd in ssds)
+            foreach (var ssd in _ssds)
             {
                 SsdCapacity.Items.Add(
                     new ListItem(
@@ -103,9 +105,9 @@ namespace DigiExpress
         public void LoadOs(SqlConnection connection)
         {
             string ssdQuery = "SELECT * FROM dbo.de_parts where typename = 'os'";
-            List<ComputerParts> osi = ComputerPartsController.GetLaptopPart(connection, ssdQuery);
+            _osi = ComputerPartsController.GetLaptopPart(connection, ssdQuery);
 
-            foreach (var os in osi)
+            foreach (var os in _osi)
             {
                 OperatingSystem.Items.Add(
                     new ListItem(
@@ -136,5 +138,9 @@ namespace DigiExpress
             TotalPrice.Text = $"${total}.00";
         }
 
+        protected void AddToCart(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

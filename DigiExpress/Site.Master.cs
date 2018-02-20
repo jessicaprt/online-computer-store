@@ -69,7 +69,7 @@ namespace DigiExpress
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Context.GetOwinContext().Authentication.SignIn();
+            var name = Context.User.Identity.Name;
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

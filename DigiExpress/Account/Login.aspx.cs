@@ -32,7 +32,7 @@ namespace DigiExpress.Account
                 var currentUsername = Username.Text;
                 var currentPassword = Password.Text;
 
-                var userQuery = $"SELECT username FROM dbo.de_user WHERE username = '{currentUsername}' and password = {currentPassword}";
+                var userQuery = $"SELECT username FROM dbo.de_user WHERE username = '{currentUsername}' and password = '{currentPassword}'";
 
                 var getUser = LoginController.GetUserName(connection, userQuery);
                 
@@ -44,11 +44,9 @@ namespace DigiExpress.Account
                 else
                 {
                     Session["username"] = getUser;
-                    Response.BufferOutput = true;
+                    FormsAuthentication.SetAuthCookie(Username.Text, true);
 
-                    FormsAuthentication.RedirectFromLoginPage(Username.Text, true);
-
-                    Response.Redirect("../");
+                    Response.Redirect("../Default.aspx", true);
                 }
             }
         }
