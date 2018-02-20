@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Shop Laptop" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Shop_Laptop.aspx.cs" Inherits="DigiExpress.Shop_Laptop" %>
+﻿<%@ Page Title="Shop Laptop" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Shop_Laptop.aspx.cs" Inherits="DigiExpress.ShopLaptop" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
@@ -62,7 +62,7 @@
                         </asp:DropDownList>
                     </p>
                     <p>
-                        <asp:Button ID="SubmitButton" runat="server" Text="Add To Cart" OnClientClick="return false;" onclick="AddToCart" CssClass="btn btn-default"/>
+                        <asp:Button ID="SubmitButton" runat="server" Text="Add To Cart" onclick="AddToCart" CssClass="btn btn-default"/>
                     </p>
                 </div>
                 <div class="col-md-4">

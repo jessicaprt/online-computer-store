@@ -7,7 +7,7 @@ using DigiExpress.Models;
 
 namespace DigiExpress.Controllers
 {
-    public class LoginController
+    public class UserController
     {
         public static User GetUser(SqlConnection connection, string query)
         {
@@ -32,9 +32,11 @@ namespace DigiExpress.Controllers
             return user;
         }
 
-        public static string GetUserName(SqlConnection connection, string query)
+        public static string GetUserName(SqlConnection connection, string username, string password)
         {
             var user = "";
+
+            var query = $"SELECT username FROM dbo.de_user WHERE username = '{username}' and password = '{password}'";
 
             var command = new SqlCommand(query, connection);
 
@@ -48,7 +50,32 @@ namespace DigiExpress.Controllers
                 }
             }
             return user;
+        }
 
+        public static int GetUserIdByName(string username)
+        {
+            var connection = DatabaseUtils.CreateConnection();
+            connection.Open();
+
+            int userId = -1;
+
+            var query = $"SELECT userId FROM dbo.de_user WHERE username = '{username}'";
+
+            var command = new SqlCommand(query, connection);
+
+
+            using (var reader = command.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                        userId = reader.GetInt32(0);
+                }
+            }
+
+            connection.Close();
+
+            return userId;
         }
     }
 }

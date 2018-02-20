@@ -381,7 +381,8 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\ComputerPartsController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\LaptopController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DatabaseUtils.cs" />
     <Compile Include="Deals.aspx.cs">
       <DependentUpon>Deals.aspx</DependentUpon>

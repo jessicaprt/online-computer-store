@@ -11,7 +11,7 @@ using DigiExpress.Models;
 
 namespace DigiExpress
 {
-    public partial class Shop_Laptop : Page
+    public partial class ShopLaptop : Page
     {
         private List<ComputerParts> _screenSizes;
         private List<ComputerParts> _processors;
@@ -21,33 +21,47 @@ namespace DigiExpress
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Context.User.Identity.Name == "")
+            {
+                Response.Redirect("~/Account/Login.aspx", true);
+            }
+
+            SqlConnection connection = DatabaseUtils.CreateConnection();
+            connection.Open();
+
+            LoadComputerParts(connection);
+
             if (!Page.IsPostBack)
             {
-                SqlConnection connection = DatabaseUtils.CreateConnection();
-                connection.Open();
-
+                LoadComputerParts(connection);
                 ScreenSize.Items.Clear();
                 Processor.Items.Clear();
                 RamSize.Items.Clear();
                 SsdCapacity.Items.Clear();
                 OperatingSystem.Items.Clear();
 
-                LoadScreenSizes(connection);
-                LoadProcessors(connection);
-                LoadRam(connection);
-                LoadSsd(connection);
-                LoadOs(connection);
+                LoadScreenSizes();
+                LoadProcessors();
+                LoadRam();
+                LoadSsd();
+                LoadOs();
                 CalculateTotal();
-                connection.Close();
             }
+            connection.Close();
         }
 
-        public void LoadScreenSizes(SqlConnection connection)
+        public void LoadComputerParts(SqlConnection connection)
         {
+            _screenSizes = ComputerPartsController.GetLaptopPart(connection, "screen");
+            _processors = ComputerPartsController.GetLaptopPart(connection, "processor");
+            _rams = ComputerPartsController.GetLaptopPart(connection, "ram");
+            _ssds = ComputerPartsController.GetLaptopPart(connection, "ssd");
+            _osi = ComputerPartsController.GetLaptopPart(connection, "os");
+        }
 
-            string screenSizeQuery = "SELECT * FROM dbo.de_parts where typename = 'screen'";
-            _screenSizes = ComputerPartsController.GetLaptopPart(connection, screenSizeQuery);
-
+        public void LoadScreenSizes()
+        {
             foreach (var screenSize in _screenSizes)
             {
                 ScreenSize.Items.Add(
@@ -57,12 +71,8 @@ namespace DigiExpress
             }
         }
 
-        public void LoadProcessors(SqlConnection connection)
+        public void LoadProcessors()
         {
-
-            string processorQuery = "SELECT * FROM dbo.de_parts where typename = 'processor'";
-            _processors = ComputerPartsController.GetLaptopPart(connection, processorQuery);
-
             foreach (var processor in _processors)
             {
                 Processor.Items.Add(
@@ -72,12 +82,8 @@ namespace DigiExpress
             }
         }
 
-        public void LoadRam(SqlConnection connection)
+        public void LoadRam()
         {
-
-            string ramQuery = "SELECT * FROM dbo.de_parts where typename = 'ram'";
-            _rams = ComputerPartsController.GetLaptopPart(connection, ramQuery);
-
             foreach (var ram in _rams)
             {
                 RamSize.Items.Add(
@@ -87,12 +93,8 @@ namespace DigiExpress
             }
         }
 
-        public void LoadSsd(SqlConnection connection)
+        public void LoadSsd()
         {
-
-            string ssdQuery = "SELECT * FROM dbo.de_parts where typename = 'ssd'";
-            _ssds = ComputerPartsController.GetLaptopPart(connection, ssdQuery);
-
             foreach (var ssd in _ssds)
             {
                 SsdCapacity.Items.Add(
@@ -102,11 +104,8 @@ namespace DigiExpress
             }
         }
 
-        public void LoadOs(SqlConnection connection)
+        public void LoadOs()
         {
-            string ssdQuery = "SELECT * FROM dbo.de_parts where typename = 'os'";
-            _osi = ComputerPartsController.GetLaptopPart(connection, ssdQuery);
-
             foreach (var os in _osi)
             {
                 OperatingSystem.Items.Add(
@@ -140,7 +139,41 @@ namespace DigiExpress
 
         protected void AddToCart(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var laptop = new Laptop();
+
+            laptop.ComputerType = "laptop";
+            laptop.Id = LaptopController.GetLaptopCount() + 1;
+            laptop.UserId = UserController.GetUserIdByName(Context.User.Identity.Name);
+            laptop.UserName = Context.User.Identity.Name;
+
+            laptop.Screen = _screenSizes
+                .Where(s => s.Price == int.Parse(ScreenSize.SelectedValue))
+                .Select(s => s.ShortName)
+                .First();
+
+            laptop.Processor = _processors
+                .Where(s => s.Price == int.Parse(Processor.SelectedValue))
+                .Select(s => s.ShortName)
+                .First();
+
+            laptop.Ram = _rams
+                .Where(s => s.Price == int.Parse(RamSize.SelectedValue))
+                .Select(s => s.ShortName)
+                .First();
+
+            laptop.Ssd = _ssds
+                .Where(s => s.Price == int.Parse(SsdCapacity.SelectedValue))
+                .Select(s => s.ShortName)
+                .First();
+
+            laptop.Os = _osi
+                .Where(s => s.Price == int.Parse(OperatingSystem.SelectedValue))
+                .Select(s => s.ShortName)
+                .First();
+
+            LaptopController.AddLaptop(laptop);
+
+            Response.Redirect("~/Default.aspx", true);
         }
     }
 }

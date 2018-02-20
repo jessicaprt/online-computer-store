@@ -10,7 +10,7 @@
 namespace DigiExpress {
     
     
-    public partial class Shop_Laptop {
+    public partial class ShopLaptop {
         
         /// <summary>
         /// UpdatePanel1 control.

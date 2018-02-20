@@ -32,9 +32,7 @@ namespace DigiExpress.Account
                 var currentUsername = Username.Text;
                 var currentPassword = Password.Text;
 
-                var userQuery = $"SELECT username FROM dbo.de_user WHERE username = '{currentUsername}' and password = '{currentPassword}'";
-
-                var getUser = LoginController.GetUserName(connection, userQuery);
+                var getUser = UserController.GetUserName(connection, currentUsername, currentPassword);
                 
 
                 if ( (getUser == "") || (getUser == null) )

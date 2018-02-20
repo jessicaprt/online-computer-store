@@ -10,10 +10,12 @@ namespace DigiExpress.Controllers
 {
     public class ComputerPartsController
     {
-        public static List<ComputerParts> GetLaptopPart(SqlConnection connection, string query)
+        public static List<ComputerParts> GetLaptopPart(SqlConnection connection, string typeName)
         {
 
             List<ComputerParts> parts = new List<ComputerParts>();
+
+            string query = $"SELECT * FROM dbo.de_parts where typename = '{typeName}'";
 
             SqlCommand command = new SqlCommand(query, connection);
 
