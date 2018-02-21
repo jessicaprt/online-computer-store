@@ -16,11 +16,18 @@ namespace DigiExpress
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _username = Context.User.Identity.Name;
-            _cartItems = CartController.GetCartItems(_username);
-
             Session["username"] = Context.User.Identity.Name;
 
+        }
+
+        protected void ConfirmOrder(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        protected void RemoveFromCart(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

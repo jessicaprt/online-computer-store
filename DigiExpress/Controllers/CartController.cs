@@ -10,7 +10,7 @@ namespace DigiExpress.Controllers
 {
     public class CartController
     {
-        public static List<CartItem> GetCartItems(String username)
+        public static List<CartItem> GetCartItems(string username)
         {
             var connection = DatabaseUtils.CreateConnection();
             connection.Open();
@@ -33,6 +33,7 @@ namespace DigiExpress.Controllers
                         cartItem.UserName = reader.GetString(0);
                         cartItem.TypeName = reader.GetString(1);
                         cartItem.ComputerId = reader.GetInt32(2);
+                        cartItem.Price = reader.GetInt32(3);
 
                         cartItems.Add(cartItem);
                     }
@@ -49,7 +50,7 @@ namespace DigiExpress.Controllers
             connection.Open();
 
             var query = "INSERT INTO dbo.de_onCart(username, typename, computerId) " +
-                        "VALUES(@param1, @param2, @param3)";
+                        "VALUES(@param1, @param2, @param3, @param4)";
 
             using (connection)
             {
@@ -57,6 +58,7 @@ namespace DigiExpress.Controllers
                 cmd.Parameters.Add("@param1", SqlDbType.VarChar, 40).Value = cartItem.UserName;
                 cmd.Parameters.Add("@param2", SqlDbType.VarChar, 10).Value = cartItem.TypeName;
                 cmd.Parameters.Add("@param3", SqlDbType.Int).Value = cartItem.ComputerId;
+                cmd.Parameters.Add("@param3", SqlDbType.Int).Value = cartItem.Price;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
@@ -97,6 +99,7 @@ namespace DigiExpress.Controllers
                 newRenderedCartItem.Part3 = computer.Part3;
                 newRenderedCartItem.Part4 = computer.Part4;
                 newRenderedCartItem.Part5 = computer.Part5;
+                newRenderedCartItem.Price = cartItem.Price;
 
                 cartItems.Add(newRenderedCartItem);
             }
@@ -107,8 +110,8 @@ namespace DigiExpress.Controllers
         public static string GetImageUrl(string computerType)
         {
             if (computerType == "laptop")
-                return "~/images/winbook.png";
-            return "~/images/winbook_desktop.png";
+                return "images/winbook.png";
+            return "images/winbook_desktop.png";
         }
 
         public static string GetComputerName(string computerType)

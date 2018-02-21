@@ -31,7 +31,7 @@ namespace DigiExpress {
         protected global::System.Web.UI.WebControls.DropDownList VideoCard;
         
         /// <summary>
-        /// Processor control.
+        /// Part2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

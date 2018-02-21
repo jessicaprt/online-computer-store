@@ -18,7 +18,7 @@
         
                 <div class="col-md-4">
             
-                    <p>Screen size:</p>
+                    <p>Part1 size:</p>
                     <p>
                         <asp:DropDownList ID="ScreenSize" runat="server" 
                                           CssClass="shop-dropdown"
@@ -26,7 +26,7 @@
                                           AutoPostBack="True">
                         </asp:DropDownList>
                     </p>
-                    <p>Processor:</p>
+                    <p>Part2:</p>
                     <p>
                         <asp:DropDownList ID="Processor" runat="server" 
                                           CssClass="shop-dropdown"

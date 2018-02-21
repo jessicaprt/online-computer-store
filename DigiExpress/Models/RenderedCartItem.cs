@@ -14,5 +14,6 @@ namespace DigiExpress.Models
         public string Part3 { get; set; }
         public string Part4 { get; set; }
         public string Part5 { get; set; }
+        public int Price { get; set; }
     }
 }

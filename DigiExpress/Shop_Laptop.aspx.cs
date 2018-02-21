@@ -19,6 +19,8 @@ namespace DigiExpress
         private List<ComputerParts> _ssds;
         private List<ComputerParts> _osi;
 
+        private int _total;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -27,7 +29,7 @@ namespace DigiExpress
                 Response.Redirect("~/Account/Login.aspx", true);
             }
 
-            SqlConnection connection = DatabaseUtils.CreateConnection();
+            var connection = DatabaseUtils.CreateConnection();
             connection.Open();
 
             LoadComputerParts(connection);
@@ -128,13 +130,13 @@ namespace DigiExpress
 
         public void CalculateTotal()
         {
-            int total = int.Parse(ScreenSize.SelectedValue) +
+            _total = int.Parse(ScreenSize.SelectedValue) +
                         int.Parse(Processor.SelectedValue) +
                         int.Parse(RamSize.SelectedValue) +
                         int.Parse(SsdCapacity.SelectedValue) +
                         int.Parse(OperatingSystem.SelectedValue);
 
-            TotalPrice.Text = $"${total}.00";
+            TotalPrice.Text = $"${_total}.00";
         }
 
         protected void AddToCart(object sender, EventArgs e)
@@ -146,27 +148,27 @@ namespace DigiExpress
             laptop.UserId = UserController.GetUserIdByName(Context.User.Identity.Name);
             laptop.UserName = Context.User.Identity.Name;
 
-            laptop.Screen = _screenSizes
+            laptop.Part1 = _screenSizes
                 .Where(s => s.Price == int.Parse(ScreenSize.SelectedValue))
                 .Select(s => s.ShortName)
                 .First();
 
-            laptop.Processor = _processors
+            laptop.Part2 = _processors
                 .Where(s => s.Price == int.Parse(Processor.SelectedValue))
                 .Select(s => s.ShortName)
                 .First();
 
-            laptop.Ram = _rams
+            laptop.Part3 = _rams
                 .Where(s => s.Price == int.Parse(RamSize.SelectedValue))
                 .Select(s => s.ShortName)
                 .First();
 
-            laptop.Ssd = _ssds
+            laptop.Part4 = _ssds
                 .Where(s => s.Price == int.Parse(SsdCapacity.SelectedValue))
                 .Select(s => s.ShortName)
                 .First();
 
-            laptop.Os = _osi
+            laptop.Part5 = _osi
                 .Where(s => s.Price == int.Parse(OperatingSystem.SelectedValue))
                 .Select(s => s.ShortName)
                 .First();
@@ -181,7 +183,7 @@ namespace DigiExpress
 
             CartController.AddToCart(newCartItem);
 
-            Response.Redirect("~/Default.aspx", true);
+            Response.Redirect("~/Cart.aspx", true);
         }
     }
 }

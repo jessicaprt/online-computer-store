@@ -396,9 +396,11 @@
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Computers.cs" />
     <Compile Include="Models\Desktop.cs" />
+    <Compile Include="Models\IComputer.cs" />
     <Compile Include="Models\Laptop.cs" />
     <Compile Include="Models\ComputerParts.cs" />
     <Compile Include="Models\PartType.cs" />
+    <Compile Include="Models\RenderedCartItem.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Shop_Desktop.aspx.cs">
       <DependentUpon>Shop_Desktop.aspx</DependentUpon>

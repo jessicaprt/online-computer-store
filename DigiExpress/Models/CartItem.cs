@@ -10,5 +10,6 @@ namespace DigiExpress.Models
         public string UserName { get; set; }
         public string TypeName { get; set; }
         public int ComputerId { get; set; }
+        public int Price { get; set; }
     }
 }
