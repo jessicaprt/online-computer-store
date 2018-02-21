@@ -55,11 +55,11 @@ namespace DigiExpress
 
         public void LoadComputerParts(SqlConnection connection)
         {
-            _screenSizes = ComputerPartsController.GetLaptopPart(connection, "screen");
-            _processors = ComputerPartsController.GetLaptopPart(connection, "processor");
-            _rams = ComputerPartsController.GetLaptopPart(connection, "ram");
-            _ssds = ComputerPartsController.GetLaptopPart(connection, "ssd");
-            _osi = ComputerPartsController.GetLaptopPart(connection, "os");
+            _screenSizes = ComputerPartsController.GetComputerPart(connection, "screen");
+            _processors = ComputerPartsController.GetComputerPart(connection, "processor");
+            _rams = ComputerPartsController.GetComputerPart(connection, "ram");
+            _ssds = ComputerPartsController.GetComputerPart(connection, "ssd");
+            _osi = ComputerPartsController.GetComputerPart(connection, "os");
         }
 
         public void LoadScreenSizes()
@@ -145,7 +145,7 @@ namespace DigiExpress
             var laptop = new Laptop();
 
             laptop.ComputerType = "laptop";
-            laptop.Id = LaptopController.GetLaptopCount() + 1001;
+            laptop.Id = LaptopController.GetLaptopCount() + 1;
             laptop.UserId = UserController.GetUserIdByName(Context.User.Identity.Name);
             laptop.UserName = Context.User.Identity.Name;
 

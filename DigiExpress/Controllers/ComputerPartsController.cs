@@ -10,7 +10,7 @@ namespace DigiExpress.Controllers
 {
     public class ComputerPartsController
     {
-        public static List<ComputerParts> GetLaptopPart(SqlConnection connection, string typeName)
+        public static List<ComputerParts> GetComputerPart(SqlConnection connection, string typeName)
         {
 
             List<ComputerParts> parts = new List<ComputerParts>();
