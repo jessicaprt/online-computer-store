@@ -8,6 +8,7 @@ namespace DigiExpress.Models
     public class RenderedCartItem
     {
         public string ImageUrl { get; set; }
+        public string ComputerIdType { get; set; }
         public string ComputerName { get; set; }
         public string Part1 { get; set; }
         public string Part2 { get; set; }

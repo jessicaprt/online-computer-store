@@ -9,7 +9,7 @@
     <div>
         <div class="form-title"><h3>Your Shopping Cart</h3></div>
         <hr />
-        <asp:ListView ID="ListView1" runat="server" DataSourceID="ObjectDataSource1" >
+        <asp:ListView ID="ListView1" runat="server" DataSourceID="ObjectDataSource1" OnSelectedIndexChanged="ListView1_SelectedIndexChanged" >
             <EditItemTemplate>
                 <span style="">
                 <br />
@@ -30,6 +30,9 @@
                 <br />
                 Operating System:
                 <asp:TextBox ID="Part5TextBox" runat="server" Text='<%# Bind("Part5") %>' />
+                <br />
+                Price:
+                <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' />
                 <br />
                 <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
                 <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
@@ -62,10 +65,13 @@
                             <br />
                             <strong>Operating System:</strong>
                             <asp:Label ID="Part5Label" runat="server" Text='<%# Eval("Part5") %>' />
+                            <br /><h3>
+                            <strong>Price: </strong>
+                            $<asp:Label ID="PriceLabel" runat="server" Text='<%#Eval("Price")%>' />.00</h3>
                             <br /><br />
-                            <asp:Button ID="OrderButton" runat="server" Text="Confirm Order" onclick="ConfirmOrder" CssClass="btn btn-default"/>
+                            <asp:Button ID="OrderButton" runat="server" Text="Confirm Order" OnCommand="ConfirmOrder" CommandArgument='<%# Eval("ComputerIdType")%>' CssClass="btn btn-default"/>
                             <br /><br />
-                            <asp:Button ID="DeleteButton" runat="server" Text="Remove From Cart" onclick="RemoveFromCart" CssClass="btn btn-default"/>
+                            <asp:Button ID="DeleteButton" runat="server" Text="Remove From Cart" OnCommand="RemoveFromCart" CommandArgument='<%# Eval("ComputerIdType") %>' CssClass="btn btn-default"/>
                             <br />
                         </div>
                     </div>

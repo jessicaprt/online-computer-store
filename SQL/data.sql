@@ -37,8 +37,7 @@ CREATE TABLE de_laptops(
     ssd         VARCHAR(20),
     os          VARCHAR(20),
     PRIMARY KEY (typename, laptopid),
-    FOREIGN KEY (userid) REFERENCES de_user(userId),
-    FOREIGN KEY (username) REFERENCES de_user(username)
+    FOREIGN KEY (userid, username) REFERENCES de_user(userId, username)
 );
 
 CREATE TABLE de_desktops(
@@ -60,6 +59,7 @@ CREATE TABLE de_orders (
     username    VARCHAR(40),
     typename    VARCHAR(10),
     computerId  int,
+    price       int,
     PRIMARY KEY (computerId, username)
 );
 
@@ -67,6 +67,7 @@ CREATE TABLE de_onCart (
     username    VARCHAR(40),
     typename    VARCHAR(10),
     computerId  int,
+    price       int,
     PRIMARY KEY (computerId, username)
 )
 

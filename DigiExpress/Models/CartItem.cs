@@ -5,7 +5,7 @@ using System.Web;
 
 namespace DigiExpress.Models
 {
-    public class CartItem
+    public class CartItem : IOrder
     {
         public string UserName { get; set; }
         public string TypeName { get; set; }

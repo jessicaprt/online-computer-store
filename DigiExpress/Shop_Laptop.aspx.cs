@@ -119,17 +119,6 @@ namespace DigiExpress
 
         public void CalculateTotal(object sender, EventArgs e)
         {
-            int total = int.Parse(ScreenSize.SelectedValue) +
-                        int.Parse(Processor.SelectedValue) +
-                        int.Parse(RamSize.SelectedValue) +
-                        int.Parse(SsdCapacity.SelectedValue) +
-                        int.Parse(OperatingSystem.SelectedValue);
-
-            TotalPrice.Text = $"${total}.00";
-        }
-
-        public void CalculateTotal()
-        {
             _total = int.Parse(ScreenSize.SelectedValue) +
                         int.Parse(Processor.SelectedValue) +
                         int.Parse(RamSize.SelectedValue) +
@@ -139,12 +128,24 @@ namespace DigiExpress
             TotalPrice.Text = $"${_total}.00";
         }
 
+        public int CalculateTotal()
+        {
+            _total = int.Parse(ScreenSize.SelectedValue) +
+                        int.Parse(Processor.SelectedValue) +
+                        int.Parse(RamSize.SelectedValue) +
+                        int.Parse(SsdCapacity.SelectedValue) +
+                        int.Parse(OperatingSystem.SelectedValue);
+
+            TotalPrice.Text = $"${_total}.00";
+            return _total;
+        }
+
         protected void AddToCart(object sender, EventArgs e)
         {
             var laptop = new Laptop();
 
             laptop.ComputerType = "laptop";
-            laptop.Id = LaptopController.GetLaptopCount() + 1;
+            laptop.Id = LaptopController.GetLaptopCount() + 1001;
             laptop.UserId = UserController.GetUserIdByName(Context.User.Identity.Name);
             laptop.UserName = Context.User.Identity.Name;
 
@@ -180,6 +181,7 @@ namespace DigiExpress
             newCartItem.UserName = Context.User.Identity.Name;
             newCartItem.TypeName = "laptop";
             newCartItem.ComputerId = laptop.Id;
+            newCartItem.Price = CalculateTotal();
 
             CartController.AddToCart(newCartItem);
 
