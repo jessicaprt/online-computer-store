@@ -57,21 +57,17 @@ CREATE TABLE de_desktops(
 );
 
 CREATE TABLE de_orders (
-    orderId     int,
     username    VARCHAR(40),
     typename    VARCHAR(10),
     computerId  int,
-    PRIMARY KEY (orderId, username),
-    FOREIGN KEY (username) REFERENCES de_user(username)
+    PRIMARY KEY (computerId, username)
 );
 
 CREATE TABLE de_onCart (
-    orderId     int,
     username    VARCHAR(40),
     typename    VARCHAR(10),
     computerId  int,
-    PRIMARY KEY (orderId, username),
-    FOREIGN KEY (username) REFERENCES de_user(username)
+    PRIMARY KEY (computerId, username)
 )
 
 INSERT INTO de_user VALUES (1, 'user', 'password');

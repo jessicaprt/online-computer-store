@@ -173,6 +173,14 @@ namespace DigiExpress
 
             LaptopController.AddLaptop(laptop);
 
+            var newCartItem = new CartItem();
+
+            newCartItem.UserName = Context.User.Identity.Name;
+            newCartItem.TypeName = "laptop";
+            newCartItem.ComputerId = laptop.Id;
+
+            CartController.AddToCart(newCartItem);
+
             Response.Redirect("~/Default.aspx", true);
         }
     }

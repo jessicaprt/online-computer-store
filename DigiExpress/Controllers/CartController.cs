@@ -29,11 +29,10 @@ namespace DigiExpress.Controllers
                     while (reader.Read())
                     {
                         var cartItem = new CartItem();
-
-                        cartItem.OrderId = reader.GetInt32(0);
-                        cartItem.UserName = reader.GetString(1);
-                        cartItem.TypeName = reader.GetString(2);
-                        cartItem.ComputerId = reader.GetInt32(3);
+                        
+                        cartItem.UserName = reader.GetString(0);
+                        cartItem.TypeName = reader.GetString(1);
+                        cartItem.ComputerId = reader.GetInt32(2);
 
                         cartItems.Add(cartItem);
                     }
@@ -49,16 +48,15 @@ namespace DigiExpress.Controllers
             var connection = DatabaseUtils.CreateConnection();
             connection.Open();
 
-            var query = "INSERT INTO dbo.de_onCart(orderId, username, typename, computerId) " +
-                        "VALUES(@param1, @param2, @param3, @param4)";
+            var query = "INSERT INTO dbo.de_onCart(username, typename, computerId) " +
+                        "VALUES(@param1, @param2, @param3)";
 
             using (connection)
             {
                 SqlCommand cmd = new SqlCommand(query, connection);
-                cmd.Parameters.Add("@param1", SqlDbType.Int).Value = cartItem.OrderId;
-                cmd.Parameters.Add("@param2", SqlDbType.VarChar, 40).Value = cartItem.UserName;
-                cmd.Parameters.Add("@param3", SqlDbType.VarChar, 10).Value = cartItem.TypeName;
-                cmd.Parameters.Add("@param4", SqlDbType.Int).Value = cartItem.ComputerId;
+                cmd.Parameters.Add("@param1", SqlDbType.VarChar, 40).Value = cartItem.UserName;
+                cmd.Parameters.Add("@param2", SqlDbType.VarChar, 10).Value = cartItem.TypeName;
+                cmd.Parameters.Add("@param3", SqlDbType.Int).Value = cartItem.ComputerId;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }
@@ -80,5 +78,45 @@ namespace DigiExpress.Controllers
 
             connection.Close();
         }
+
+        public static List<RenderedCartItem> RenderCart(string username)
+        {
+            var cartItems = new List<RenderedCartItem>();
+
+            var unrenderedCartItems = GetCartItems(username);
+
+            foreach (var cartItem in unrenderedCartItems)
+            {
+                var computer = LaptopController.GetLaptopById(cartItem.ComputerId);
+                var newRenderedCartItem = new RenderedCartItem();
+
+                newRenderedCartItem.ImageUrl = GetImageUrl(cartItem.TypeName);
+                newRenderedCartItem.ComputerName = GetComputerName(cartItem.TypeName);
+                newRenderedCartItem.Part1 = computer.Part1;
+                newRenderedCartItem.Part2 = computer.Part2;
+                newRenderedCartItem.Part3 = computer.Part3;
+                newRenderedCartItem.Part4 = computer.Part4;
+                newRenderedCartItem.Part5 = computer.Part5;
+
+                cartItems.Add(newRenderedCartItem);
+            }
+
+            return cartItems;
+        }
+
+        public static string GetImageUrl(string computerType)
+        {
+            if (computerType == "laptop")
+                return "~/images/winbook.png";
+            return "~/images/winbook_desktop.png";
+        }
+
+        public static string GetComputerName(string computerType)
+        {
+            if (computerType == "laptop")
+                return "WinBook laptop";
+            return "WinBox computer";
+        }
+
     }
 }

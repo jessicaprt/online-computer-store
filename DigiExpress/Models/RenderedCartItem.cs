@@ -5,12 +5,10 @@ using System.Web;
 
 namespace DigiExpress.Models
 {
-    public class Laptop : IComputer
+    public class RenderedCartItem
     {
-        public string ComputerType { get; set; }
-        public int Id { get; set; }
-        public int UserId { get; set; }
-        public string UserName { get; set; }
+        public string ImageUrl { get; set; }
+        public string ComputerName { get; set; }
         public string Part1 { get; set; }
         public string Part2 { get; set; }
         public string Part3 { get; set; }
