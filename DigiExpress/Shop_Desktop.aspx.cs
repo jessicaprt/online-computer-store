@@ -63,12 +63,12 @@ namespace DigiExpress
 
         public void LoadVideoCards()
         {
-            foreach (var screenSize in _videoCards)
+            foreach (var videoCard in _videoCards)
             {
                 VideoCard.Items.Add(
                     new ListItem(
-                        screenSize.PartName,
-                        screenSize.Price.ToString()));
+                        videoCard.PartName,
+                        videoCard.Price.ToString()));
             }
         }
 
@@ -141,10 +141,10 @@ namespace DigiExpress
 
         protected void AddToCart(object sender, EventArgs e)
         {
-            var desktop = new Desktop();
+            var desktop = new Computer();
 
             desktop.ComputerType = "desktop";
-            desktop.Id = LaptopController.GetLaptopCount() + 1;
+            desktop.Id = ComputerController.GetComputerCount() + 1;
             desktop.UserId = UserController.GetUserIdByName(Context.User.Identity.Name);
             desktop.UserName = Context.User.Identity.Name;
 
@@ -173,7 +173,7 @@ namespace DigiExpress
                 .Select(s => s.ShortName)
                 .First();
 
-            DesktopController.AddDesktop(desktop);
+            ComputerController.AddComputer(desktop);
 
             var newCartItem = new CartItem();
 

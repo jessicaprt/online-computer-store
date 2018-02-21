@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace DigiExpress.Models
+﻿namespace DigiExpress.Models
 {
-    public class RenderedCartItem
+    public class RenderedOrderItem
     {
         public string ImageUrl { get; set; }
         public string ComputerIdType { get; set; }

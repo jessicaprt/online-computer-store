@@ -142,10 +142,10 @@ namespace DigiExpress
 
         protected void AddToCart(object sender, EventArgs e)
         {
-            var laptop = new Laptop();
+            var laptop = new Computer();
 
             laptop.ComputerType = "laptop";
-            laptop.Id = LaptopController.GetLaptopCount() + 1;
+            laptop.Id = ComputerController.GetComputerCount() + 1;
             laptop.UserId = UserController.GetUserIdByName(Context.User.Identity.Name);
             laptop.UserName = Context.User.Identity.Name;
 
@@ -174,7 +174,7 @@ namespace DigiExpress
                 .Select(s => s.ShortName)
                 .First();
 
-            LaptopController.AddLaptop(laptop);
+            ComputerController.AddComputer(laptop);
 
             var newCartItem = new CartItem();
 

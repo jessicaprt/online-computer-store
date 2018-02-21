@@ -13,11 +13,11 @@
         <div class="col-md-4">
             <div class="box-img" id="laptop-img"></div>
             <div class="box-txt">
-                <h2>WinBook laptops</h2>
+                <h2>WinBook computers</h2>
                 <p>
-                    WinBook premium laptops are the best on the market! Modify your parts and get the laptop that's perfect for you!
+                    WinBook premium computers are the best on the market! Modify your parts and get the computer that's perfect for you!
                 <p>
-                    <a class="btn btn-default" href="./Shop_Laptop">Shop laptops &raquo;</a>
+                    <a class="btn btn-default" href="./Shop_Laptop">Shop computers &raquo;</a>
                 </p>
             </div>
         </div>

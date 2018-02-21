@@ -26,33 +26,18 @@ CREATE TABLE de_parts (
     FOREIGN KEY (computerId)  REFERENCES de_computers(id)
 );
 
-CREATE TABLE de_laptops(
+CREATE TABLE de_savedComputers(
     typename    VARCHAR(10),
-    laptopid    int,
+    computerId  int,
     userId      int,
     username    VARCHAR(40),
-    screen      VARCHAR(20),
-    processor   VARCHAR(20),
-    ram         VARCHAR(20),
-    ssd         VARCHAR(20),
-    os          VARCHAR(20),
-    PRIMARY KEY (typename, laptopid),
+    part1       VARCHAR(20),
+    part2       VARCHAR(20),
+    part3       VARCHAR(20),
+    part4       VARCHAR(20),
+    part5       VARCHAR(20),
+    PRIMARY KEY (typename, computerId),
     FOREIGN KEY (userid, username) REFERENCES de_user(userId, username)
-);
-
-CREATE TABLE de_desktops(
-    typename    VARCHAR(10),
-    desktopId   int,
-    userId      int,
-    username    VARCHAR(40),
-    processor   VARCHAR(20),
-    ram         VARCHAR(20),
-    ssd         VARCHAR(20),
-    os          VARCHAR(20),
-    videocard   VARCHAR(20),
-    PRIMARY KEY (typename, desktopid),
-    FOREIGN KEY (userid) REFERENCES de_user(userId),
-    FOREIGN KEY (username) REFERENCES de_user(username)
 );
 
 CREATE TABLE de_orders (
@@ -60,7 +45,7 @@ CREATE TABLE de_orders (
     typename    VARCHAR(10),
     computerId  int,
     price       int,
-    PRIMARY KEY (computerId, username)
+    PRIMARY KEY (computerId, typename, username)
 );
 
 CREATE TABLE de_onCart (
@@ -68,8 +53,8 @@ CREATE TABLE de_onCart (
     typename    VARCHAR(10),
     computerId  int,
     price       int,
-    PRIMARY KEY (computerId, username)
-)
+    PRIMARY KEY (computerId, typename, username)
+);
 
 INSERT INTO de_user VALUES (1, 'user', 'password');
 

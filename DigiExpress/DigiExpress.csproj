@@ -185,6 +185,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="OrdersHistory.aspx" />
     <Content Include="Content\style.css" />
     <Content Include="images\map.jpg" />
     <Content Include="images\winbook_desktop.png" />
@@ -293,10 +294,18 @@
       <DependentUpon>ResetPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\RenderItemController.cs" />
+    <Compile Include="Models\RenderedOrderItem.cs" />
+    <Compile Include="OrdersHistory.aspx.cs">
+      <DependentUpon>OrdersHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrdersHistory.aspx.designer.cs">
+      <DependentUpon>OrdersHistory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\ComputerPartsController.cs" />
-    <Compile Include="Controllers\DesktopController.cs" />
-    <Compile Include="Controllers\LaptopController.cs" />
+    <Compile Include="Controllers\ComputerController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DatabaseUtils.cs" />
@@ -309,14 +318,12 @@
     </Compile>
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Computers.cs" />
-    <Compile Include="Models\Desktop.cs" />
-    <Compile Include="Models\IComputer.cs" />
     <Compile Include="Models\IOrder.cs" />
-    <Compile Include="Models\Laptop.cs" />
+    <Compile Include="Models\Computer.cs" />
     <Compile Include="Models\ComputerParts.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\PartType.cs" />
-    <Compile Include="Models\RenderedCartItem.cs" />
+    <Compile Include="Models\RenderItem.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Shop_Desktop.aspx.cs">
       <DependentUpon>Shop_Desktop.aspx</DependentUpon>

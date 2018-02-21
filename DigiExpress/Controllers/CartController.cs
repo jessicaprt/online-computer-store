@@ -101,7 +101,7 @@ namespace DigiExpress.Controllers
             var connection = DatabaseUtils.CreateConnection();
             connection.Open();
 
-            var computerIdString = computerId.ToString();
+            var computerIdString = computerId;
             using (connection)
             {
                 var query = $"DELETE FROM dbo.de_onCart WHERE typename = '{computerType}' and computerId = '{computerIdString}' ";
@@ -112,16 +112,16 @@ namespace DigiExpress.Controllers
             connection.Close();
         }
 
-        public static List<RenderedCartItem> RenderCart(string username)
+        public static List<RenderItem> RenderItems(string username)
         {
-            var cartItems = new List<RenderedCartItem>();
+            var cartItems = new List<RenderItem>();
 
             var unrenderedCartItems = GetCartItems(username);
 
             foreach (var cartItem in unrenderedCartItems)
             {
-                var computer = LaptopController.GetLaptopById(cartItem.ComputerId);
-                var newRenderedCartItem = new RenderedCartItem();
+                var computer = ComputerController.GetComputerById(cartItem.ComputerId, cartItem.TypeName);
+                var newRenderedCartItem = new RenderItem();
 
                 newRenderedCartItem.ImageUrl = GetImageUrl(cartItem.TypeName);
                 newRenderedCartItem.ComputerIdType = $"{cartItem.ComputerId}, {cartItem.TypeName}";

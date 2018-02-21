@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Shop Laptop" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Shop_Laptop.aspx.cs" Inherits="DigiExpress.ShopLaptop" %>
+﻿<%@ Page Title="Shop Computer" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Shop_Laptop.aspx.cs" Inherits="DigiExpress.ShopLaptop" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
@@ -7,7 +7,7 @@
 
             <div class="shop-form-main row">
                 <div class="col-md-12">
-                    <h3>choose your laptop:</h3>
+                    <h3>choose your computer:</h3>
                 </div>
         
                 <div class="col-md-4">

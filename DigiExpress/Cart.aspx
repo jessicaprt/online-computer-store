@@ -87,7 +87,7 @@
                 </div>
             </LayoutTemplate>
         </asp:ListView>
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="RenderCart" TypeName="DigiExpress.Controllers.CartController">
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="RenderItems" TypeName="DigiExpress.Controllers.CartController">
             <SelectParameters>
                 <asp:SessionParameter DefaultValue="" Name="username" SessionField="username" Type="String" />
             </SelectParameters>
