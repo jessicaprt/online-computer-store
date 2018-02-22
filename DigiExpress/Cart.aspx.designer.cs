@@ -13,7 +13,7 @@ namespace DigiExpress {
     public partial class Cart {
         
         /// <summary>
-        /// ListView1 control.
+        /// OrdersListView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.

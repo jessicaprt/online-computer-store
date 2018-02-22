@@ -28,7 +28,7 @@ namespace DigiExpress
             OrderController.AddToOrdersHistory(int.Parse(computerId), computerType);
             CartController.RemoveFromCart(computerId, computerType);
 
-            Response.Redirect("~/Default.aspx", true);
+            Response.Redirect("~/OrderMessage.aspx", true);
 
         }
 

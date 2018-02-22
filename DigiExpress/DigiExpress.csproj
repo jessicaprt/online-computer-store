@@ -193,6 +193,7 @@
     <Content Include="images\DE_icon.png" />
     <Content Include="images\winbook.png" />
     <Content Include="Deals.aspx" />
+    <Content Include="OrderMessage.aspx" />
     <Content Include="Shop_Desktop.aspx" />
     <Content Include="Shop_Laptop.aspx" />
     <Content Include="Shop.aspx" />
@@ -325,6 +326,13 @@
     <Compile Include="Models\PartType.cs" />
     <Compile Include="Models\RenderItem.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="OrderMessage.aspx.cs">
+      <DependentUpon>OrderMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderMessage.aspx.designer.cs">
+      <DependentUpon>OrderMessage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Shop_Desktop.aspx.cs">
       <DependentUpon>Shop_Desktop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

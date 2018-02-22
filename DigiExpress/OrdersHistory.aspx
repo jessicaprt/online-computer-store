@@ -7,83 +7,43 @@
         }
     </style>
     <div>
-        <div class="form-title"><h3>Your Shopping Cart</h3></div>
+        <div class="form-title"><h3>Orders History</h3></div>
         <hr />
-        <asp:ListView ID="ListView1" runat="server" DataSourceID="ObjectDataSource1"  >
-            <AlternatingItemTemplate>
-                <span style="">UserName:
-                <asp:Label ID="UserNameLabel" runat="server" Text='<%# Eval("UserName") %>' />
-                <br />
-                TypeName:
-                <asp:Label ID="TypeNameLabel" runat="server" Text='<%# Eval("TypeName") %>' />
-                <br />
-                ComputerId:
-                <asp:Label ID="ComputerIdLabel" runat="server" Text='<%# Eval("ComputerId") %>' />
-                <br />
-                Price:
-                <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />
-                <br />
-                <br />
-                </span>
-            </AlternatingItemTemplate>
-            <EditItemTemplate>
-                <span style="">UserName:
-                <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' />
-                <br />
-                TypeName:
-                <asp:TextBox ID="TypeNameTextBox" runat="server" Text='<%# Bind("TypeName") %>' />
-                <br />
-                ComputerId:
-                <asp:TextBox ID="ComputerIdTextBox" runat="server" Text='<%# Bind("ComputerId") %>' />
-                <br />
-                Price:
-                <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' />
-                <br />
-                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                <br />
-                <br />
-                </span>
-            </EditItemTemplate>
+        <asp:ListView ID="OrdersListView" runat="server" DataSourceID="ObjectDataSource1"  >
+            
             <EmptyDataTemplate>
-                <span>No data was returned.</span>
+                <div class="shop-form-main">No data was returned.</div>
             </EmptyDataTemplate>
         
-            <InsertItemTemplate>
-                <span style="">UserName:
-                <asp:TextBox ID="UserNameTextBox" runat="server" Text='<%# Bind("UserName") %>' />
-                <br />
-                TypeName:
-                <asp:TextBox ID="TypeNameTextBox" runat="server" Text='<%# Bind("TypeName") %>' />
-                <br />
-                ComputerId:
-                <asp:TextBox ID="ComputerIdTextBox" runat="server" Text='<%# Bind("ComputerId") %>' />
-                <br />
-                Price:
-                <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' />
-                <br />
-                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                <br />
-                <br />
-                </span>
-            </InsertItemTemplate>
-        
             <ItemTemplate>
-                <span style="">UserName:
-                <asp:Label ID="UserNameLabel" runat="server" Text='<%# Eval("UserName") %>' />
-                <br />
-                TypeName:
-                <asp:Label ID="TypeNameLabel" runat="server" Text='<%# Eval("TypeName") %>' />
-                <br />
-                ComputerId:
-                <asp:Label ID="ComputerIdLabel" runat="server" Text='<%# Eval("ComputerId") %>' />
-                <br />
-                Price:
-                <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />
-                <br />
-                <br />
-                </span>
+                <div class="row">
+                    <div class="col-md-4"><img src="<%# Eval("ImageUrl") %>" style="width:20vw"/></div>
+                    <div class="col-md-8">
+                        <h3>
+                        <asp:Label ID="ComputerNameLabel" runat="server" Text='<%# Eval("ComputerName") %>' />
+                        </h3>
+                        <br />
+                        <asp:Label ID="Part1Label" runat="server" Text='<%# Eval("Part1") %>' />
+                        <br />
+                        <asp:Label ID="Part2Label" runat="server" Text='<%# Eval("Part2") %>' />
+                        <br />
+                        <asp:Label ID="Part3Label" runat="server" Text='<%# Eval("Part3") %>' />
+                        <br />
+                        <asp:Label ID="Part4Label" runat="server" Text='<%# Eval("Part4") %>' />
+                        <br />
+                        <asp:Label ID="Part5Label" runat="server" Text='<%# Eval("Part5") %>' />
+                        <br />
+                        <h3>
+                        <strong>Price:</strong>
+                        $<asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />.00
+                        </h3>
+                        <br />
+                        <br />
+
+                    </div>
+                </div>
+                
+                <hr/>
             </ItemTemplate>
             <LayoutTemplate>
                 <div id="itemPlaceholderContainer" runat="server" style="">
@@ -92,24 +52,8 @@
                 <div style="">
                 </div>
             </LayoutTemplate>
-            <SelectedItemTemplate>
-                <span style="">UserName:
-                <asp:Label ID="UserNameLabel" runat="server" Text='<%# Eval("UserName") %>' />
-                <br />
-                TypeName:
-                <asp:Label ID="TypeNameLabel" runat="server" Text='<%# Eval("TypeName") %>' />
-                <br />
-                ComputerId:
-                <asp:Label ID="ComputerIdLabel" runat="server" Text='<%# Eval("ComputerId") %>' />
-                <br />
-                Price:
-                <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />
-                <br />
-                <br />
-                </span>
-            </SelectedItemTemplate>
         </asp:ListView>
-        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="GetOrderItems" TypeName="DigiExpress.Controllers.OrderController" OnSelecting="ObjectDataSource1_Selecting">
+        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="RenderOrderItems" TypeName="DigiExpress.Controllers.RenderItemController" OnSelecting="ObjectDataSource1_Selecting">
             <SelectParameters>
                 <asp:SessionParameter DefaultValue="" Name="username" SessionField="username" Type="String" />
             </SelectParameters>
