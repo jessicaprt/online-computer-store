@@ -13,20 +13,15 @@ namespace DigiExpress.Controllers
         {
 
             var user = new User();
-
             var command = new SqlCommand(query, connection);
-
-
             using (var reader = command.ExecuteReader())
             {
-                if (reader.HasRows)
+                if (!reader.HasRows) return user;
+                while (reader.Read())
                 {
-                    while (reader.Read())
-                    {
-                        user.Id = reader.GetInt32(0);
-                        user.UserName = reader.GetString(1);
-                        user.Password = reader.GetString(2);
-                    }
+                    user.Id = reader.GetInt32(0);
+                    user.UserName = reader.GetString(1);
+                    user.Password = reader.GetString(2);
                 }
             }
             return user;
@@ -43,11 +38,9 @@ namespace DigiExpress.Controllers
 
             using (var reader = command.ExecuteReader())
             {
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                        user = reader.GetString(0);
-                }
+                if (!reader.HasRows) return user;
+                while (reader.Read())
+                    user = reader.GetString(0);
             }
             return user;
         }
@@ -57,7 +50,7 @@ namespace DigiExpress.Controllers
             var connection = DatabaseUtils.CreateConnection();
             connection.Open();
 
-            int userId = -1;
+            var userId = -1;
 
             var query = $"SELECT userId FROM dbo.de_user WHERE username = '{username}'";
 
@@ -66,16 +59,63 @@ namespace DigiExpress.Controllers
 
             using (var reader = command.ExecuteReader())
             {
-                if (reader.HasRows)
+                if (!reader.HasRows) return userId;
+                while (reader.Read())
+                    userId = reader.GetInt32(0);
+            }
+
+            return userId;
+        }
+
+        public static void AddNewUser(string name, string password)
+        {
+
+        }
+
+        public static int GetTotalusers()
+        {
+            var totalNumber = 0;
+            
+            var connection = DatabaseUtils.CreateConnection();
+            connection.Open();
+
+            using (connection)
+            {
+                const string query = "SELECT * FROM dbo.de_user;";
+                var command = new SqlCommand(query, connection);
+
+                using (var reader = command.ExecuteReader())
                 {
+                    if (!reader.HasRows) return totalNumber;
                     while (reader.Read())
-                        userId = reader.GetInt32(0);
+                        totalNumber++;
+                }
+            }
+            
+            return totalNumber;
+        }
+
+        public static string RetrievePassword(string username)
+        {
+            var password = "";
+
+            var connection = DatabaseUtils.CreateConnection();
+            connection.Open();
+
+            using (connection)
+            {
+                var query = $"SELECT password FROM dbo.de_user WHERE username='{username}';";
+                var command = new SqlCommand(query, connection);
+
+                using (var reader = command.ExecuteReader())
+                {
+                    if (!reader.HasRows) return password;
+                    while (reader.Read())
+                        password = reader.GetString(0);
                 }
             }
 
-            connection.Close();
-
-            return userId;
+            return password;
         }
     }
 }

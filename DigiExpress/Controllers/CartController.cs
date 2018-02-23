@@ -112,5 +112,16 @@ namespace DigiExpress.Controllers
 
             connection.Close();
         }
+
+        public static int GetTotalCartPrice(string username)
+        {
+            int price = 0;
+            var cartItems = GetCartItems(username);
+
+            foreach (var cartItem in cartItems)
+                price += cartItem.Price;
+
+            return price;
+        }
     }
 }

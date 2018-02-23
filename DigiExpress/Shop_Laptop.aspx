@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Shop Computer" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Shop_Laptop.aspx.cs" Inherits="DigiExpress.ShopLaptop" %>
+﻿<%@ Page Title="Shop WinBook Laptops" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Shop_Laptop.aspx.cs" Inherits="DigiExpress.ShopLaptop" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     
@@ -6,19 +6,19 @@
         <ContentTemplate>
 
             <div class="shop-form-main row">
-                <div class="col-md-12">
-                    <h3>choose your computer:</h3>
+                <div class="col-md-12 color-primary shop-title">
+                    <h3>Choose your WinBook Laptop:</h3>
                 </div>
         
                 <div class="col-md-4">
                     <p>
-                        <asp:Image ID="Image1" runat="server" Width="41%" ImageUrl="~/images/winbook.png" CssClass="shop-disp-image" />
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/images/winbook.png" CssClass="shop-disp-image" />
                     </p>
                 </div>
         
                 <div class="col-md-4">
             
-                    <p>Part1 size:</p>
+                    <p>Screen:</p>
                     <p>
                         <asp:DropDownList ID="ScreenSize" runat="server" 
                                           CssClass="shop-dropdown"
@@ -26,7 +26,7 @@
                                           AutoPostBack="True">
                         </asp:DropDownList>
                     </p>
-                    <p>Part2:</p>
+                    <p>Processor:</p>
                     <p>
                         <asp:DropDownList ID="Processor" runat="server" 
                                           CssClass="shop-dropdown"
@@ -61,17 +61,20 @@
                                           AutoPostBack="True">
                         </asp:DropDownList>
                     </p>
-                    <p>
-                        <asp:Button ID="SubmitButton" runat="server" Text="Add To Cart" onclick="AddToCart" CssClass="btn btn-default"/>
-                    </p>
                 </div>
                 <div class="col-md-4">
                     
-                    <h3>Total:
-                    </h3>
-                    <asp:label id="TotalPrice"
-                        runat="server">
-                    </asp:label>
+                    <h4>Total:<br/></h4>
+                    
+                    <div class="total color-primary"><h3>
+                            <asp:label id="TotalPrice"
+                                       runat="server" >
+                            </asp:label></h3>
+                    </div>
+                    
+                    <p>
+                        <asp:Button ID="SubmitButton" runat="server" Text="Add To Cart" onclick="AddToCart" CssClass="btn btn-default"/>
+                    </p>
                 </div>
             </div>
         </ContentTemplate>

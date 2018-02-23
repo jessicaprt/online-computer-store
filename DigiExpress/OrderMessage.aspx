@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Thank you for ordering" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OrderMessage.aspx.cs" Inherits="DigiExpress.Service_References.OrderMessage" %>
+﻿<%@ Page Title="Thank you for ordering" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OrderMessage.aspx.cs" Inherits="DigiExpress.OrderMessage" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="shop-form-main">
         <br/>

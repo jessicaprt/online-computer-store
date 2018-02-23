@@ -4,13 +4,13 @@
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <div class="shop-form-main row">
-                <div class="col-md-12">
-                    <h3>choose your desktop:</h3>
+                <div class="col-md-12 color-primary shop-title">
+                    <h3>Choose your WinBox Computer:</h3>
                 </div>
         
                 <div class="col-md-4">
                     <p>
-                        <asp:Image ID="Image1" runat="server" Width="80%" ImageUrl="~/images/winbook_desktop.png" CssClass="shop-disp-image"/>
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/images/winbook_desktop.png" CssClass="shop-disp-image"/>
                     </p>
                 </div>
         
@@ -23,7 +23,7 @@
                                           AutoPostBack="True">
                         </asp:DropDownList>
                     </p>
-                    <p>Part2:</p>
+                    <p>Processor:</p>
                     <p>
                         <asp:DropDownList ID="Processor" runat="server"
                                           CssClass="shop-dropdown"
@@ -58,16 +58,21 @@
                                           AutoPostBack="True">
                         </asp:DropDownList>
                     </p>
+                </div>
+                <div class="col-md-4">
+                    
+                    <h4>Total:<br/></h4>
+                    
+                        <div class="total color-primary"><h3>
+                            <asp:label id="TotalPrice"
+                                    runat="server" >
+                            </asp:label></h3>
+
+                        </div>
+                    
                     <p>
                         <asp:Button ID="SubmitButton" runat="server" Text="Add To Cart" onclick="AddToCart" CssClass="btn btn-default"/>
                     </p>
-                </div>
-                <div class="col-md-4">
-                    <h3>Total:
-                    </h3>
-                    <asp:label id="TotalPrice"
-                               runat="server">
-                    </asp:label>
                 </div>
             </div>
         </ContentTemplate>

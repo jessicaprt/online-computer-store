@@ -12,7 +12,7 @@
         <asp:ListView ID="OrdersListView" runat="server" DataSourceID="ObjectDataSource1"  >
             
             <EmptyDataTemplate>
-                <div class="shop-form-main">No data was returned.</div>
+                <div class="shop-form-main">You have no order history.</div>
             </EmptyDataTemplate>
         
             <ItemTemplate>

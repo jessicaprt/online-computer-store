@@ -35,8 +35,7 @@
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <div class="checkbox">
-                                <asp:CheckBox runat="server" ID="RememberMe" />
-                                <asp:Label runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
+                                <asp:Label runat="server"><a href="Forgot.aspx">Remember me?</a></asp:Label>
                             </div>
                         </div>
                     </div>

@@ -8,7 +8,7 @@
                 <div class="shop-box">
                     <div class="shop-page-image" id="laptop-shop-page"></div>
                     <div class="shop-box-details">
-                        <h3>WinBook computers</h3>
+                        <h3 class="color-primary">WinBook Laptops</h3>
                     </div>
                 </div>
             </div></a>
@@ -19,7 +19,7 @@
                 <div class="shop-page-image" id="desktop-shop-page">
                 </div>
                 <div class="shop-box-details">
-                    <h3>WinBox computers</h3>
+                    <h3 class="color-primary">WinBox Computers</h3>
                 </div>
             </div></a>
         </div>

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DigiExpress.Service_References {
+namespace DigiExpress {
     
     
     public partial class OrderMessage {

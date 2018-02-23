@@ -39,7 +39,7 @@
                 <br /><br /></span>
             </EditItemTemplate>
             <EmptyDataTemplate>
-                <span>Your cart is empty</span>
+                <div class="shop-form-main">Your cart is empty</div>
             </EmptyDataTemplate>
         
             <ItemTemplate>
@@ -83,10 +83,16 @@
                 <div id="itemPlaceholderContainer" runat="server" style="">
                     <span runat="server" id="itemPlaceholder" />
                 </div>
-                <div style="">
-                </div>
             </LayoutTemplate>
         </asp:ListView>
+        
+        <div runat="server" id="TotalPriceLabel">
+            <h3>Total Price:</h3>
+            <h3>$<asp:Label runat="server" ID="TotalPrice"></asp:Label>.00</h3>
+        </div>
+        
+        
+
         <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="RenderCartItems" TypeName="DigiExpress.Controllers.RenderItemController">
             <SelectParameters>
                 <asp:SessionParameter DefaultValue="" Name="username" SessionField="username" Type="String" />

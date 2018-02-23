@@ -74,6 +74,10 @@
     background-image: url("../images/map.jpg");
 }
 
+.color-primary {
+    color: #70abaf;
+}
+
 /** SHOP PAGE **/
 
 .shop-main {
@@ -90,6 +94,7 @@
 .shop-page-sec a:hover {
     text-decoration: none;
 }
+
 .shop-box {
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
@@ -130,12 +135,21 @@
     margin-bottom: 5px;
 }
 
+.shop-title {
+    margin-top: 30px;
+}
+
 .shop-disp-image {
     margin-top: 30px;
+    width: 20vw;
 }
 
 .shop-form-main {
     height: 70vh;
+}
+
+.total {
+    margin: 22px 0;
 }
 
 /* LOCATION */
@@ -173,4 +187,9 @@
 .login-main {
     margin-top: 3vh;
     margin-bottom: 20vh;
+}
+
+/** forgot password **/
+.password {
+    padding: 50px 0;
 }

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 using DigiExpress.Controllers;
-using DigiExpress.Models;
 
 namespace DigiExpress
 {
@@ -15,6 +10,19 @@ namespace DigiExpress
         protected void Page_Load(object sender, EventArgs e)
         {
             Session["username"] = Context.User.Identity.Name;
+
+            var total = CartController.GetTotalCartPrice(Context.User.Identity.Name);
+
+            if (total > 0)
+            {
+                TotalPriceLabel.Visible = false;
+                TotalPrice.Text = total.ToString();
+            }
+            else
+            {
+                TotalPriceLabel.Visible = false;
+            }
+            
 
         }
 
