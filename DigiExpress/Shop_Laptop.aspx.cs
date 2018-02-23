@@ -151,27 +151,27 @@ namespace DigiExpress
 
             laptop.Part1 = _screenSizes
                 .Where(s => s.Price == int.Parse(ScreenSize.SelectedValue))
-                .Select(s => s.ShortName)
+                .Select(s => s.PartName)
                 .First();
 
             laptop.Part2 = _processors
                 .Where(s => s.Price == int.Parse(Processor.SelectedValue))
-                .Select(s => s.ShortName)
+                .Select(s => s.PartName)
                 .First();
 
             laptop.Part3 = _rams
                 .Where(s => s.Price == int.Parse(RamSize.SelectedValue))
-                .Select(s => s.ShortName)
+                .Select(s => s.PartName)
                 .First();
 
             laptop.Part4 = _ssds
                 .Where(s => s.Price == int.Parse(SsdCapacity.SelectedValue))
-                .Select(s => s.ShortName)
+                .Select(s => s.PartName)
                 .First();
 
             laptop.Part5 = _osi
                 .Where(s => s.Price == int.Parse(OperatingSystem.SelectedValue))
-                .Select(s => s.ShortName)
+                .Select(s => s.PartName)
                 .First();
 
             ComputerController.AddComputer(laptop);

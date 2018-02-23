@@ -45,11 +45,11 @@ namespace DigiExpress.Controllers
                 cmd.Parameters.Add("@param2", SqlDbType.Int).Value = computer.Id;
                 cmd.Parameters.Add("@param3", SqlDbType.Int).Value = computer.UserId;
                 cmd.Parameters.Add("@param4", SqlDbType.VarChar, 40).Value = computer.UserName;
-                cmd.Parameters.Add("@param5", SqlDbType.VarChar, 20).Value = computer.Part1;
-                cmd.Parameters.Add("@param6", SqlDbType.VarChar, 20).Value = computer.Part2;
-                cmd.Parameters.Add("@param7", SqlDbType.VarChar, 20).Value = computer.Part3;
-                cmd.Parameters.Add("@param8", SqlDbType.VarChar, 20).Value = computer.Part4;
-                cmd.Parameters.Add("@param9", SqlDbType.VarChar, 20).Value = computer.Part5;
+                cmd.Parameters.Add("@param5", SqlDbType.Text).Value = computer.Part1;
+                cmd.Parameters.Add("@param6", SqlDbType.Text).Value = computer.Part2;
+                cmd.Parameters.Add("@param7", SqlDbType.Text).Value = computer.Part3;
+                cmd.Parameters.Add("@param8", SqlDbType.Text).Value = computer.Part4;
+                cmd.Parameters.Add("@param9", SqlDbType.Text).Value = computer.Part5;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }

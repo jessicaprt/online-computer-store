@@ -150,27 +150,27 @@ namespace DigiExpress
 
             desktop.Part1 = _videoCards
                 .Where(s => s.Price == int.Parse(VideoCard.SelectedValue))
-                .Select(s => s.ShortName)
+                .Select(s => s.PartName)
                 .First();
 
             desktop.Part2 = _processors
                 .Where(s => s.Price == int.Parse(Processor.SelectedValue))
-                .Select(s => s.ShortName)
+                .Select(s => s.PartName)
                 .First();
 
             desktop.Part3 = _rams
                 .Where(s => s.Price == int.Parse(RamSize.SelectedValue))
-                .Select(s => s.ShortName)
+                .Select(s => s.PartName)
                 .First();
 
             desktop.Part4 = _ssds
                 .Where(s => s.Price == int.Parse(SsdCapacity.SelectedValue))
-                .Select(s => s.ShortName)
+                .Select(s => s.PartName)
                 .First();
 
             desktop.Part5 = _osi
                 .Where(s => s.Price == int.Parse(OperatingSystem.SelectedValue))
-                .Select(s => s.ShortName)
+                .Select(s => s.PartName)
                 .First();
 
             ComputerController.AddComputer(desktop);

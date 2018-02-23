@@ -31,8 +31,7 @@ namespace DigiExpress.Controllers
                         curr.TypeName = reader.GetString(0);
                         curr.Id = reader.GetInt32(1);
                         curr.PartName = reader.GetString(2);
-                        curr.ShortName = reader.GetString(3);
-                        curr.Price = reader.GetInt32(4);
+                        curr.Price = reader.GetInt32(3);
 
                         parts.Add(curr);
                     }

@@ -10,7 +10,6 @@ namespace DigiExpress.Models
         public string TypeName { get; set; }
         public int Id { get; set; }
         public string PartName { get; set; }
-        public string ShortName { get; set; }
         public int Price { get; set; }
     }
 }
