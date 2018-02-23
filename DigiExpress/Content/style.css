@@ -189,6 +189,16 @@
     margin-bottom: 20vh;
 }
 
+/** REGISTER **/
+
+.error-msg {
+    margin: 15px 0; 
+}
+
+.register-form {
+    margin-top: 50px;
+}
+
 /** forgot password **/
 .password {
     padding: 50px 0;

@@ -14,9 +14,8 @@
                             <asp:Literal runat="server" ID="FailureText" />
                         </p>
                     </asp:PlaceHolder>
-                    <asp:Label runat="server" ID="InvalidLogin">
-                        <p class="text-danger"></p>
-                    </asp:Label>
+                    
+                    <p class="text-danger"><asp:Label runat="server" ID="InvalidLogin"></asp:Label></p>
                     <div class="form-group">
                         <asp:Label runat="server" CssClass="col-md-2 control-label">Username</asp:Label>
                         <div class="col-md-10">
@@ -30,13 +29,6 @@
                         <div class="col-md-10">
                             <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <div class="checkbox">
-                                <asp:Label runat="server"><a href="Forgot.aspx">Remember me?</a></asp:Label>
-                            </div>
                         </div>
                     </div>
                     <div class="form-group">

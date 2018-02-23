@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -27,14 +28,30 @@ namespace DigiExpress.Controllers
             return user;
         }
 
-        public static string GetUserName(SqlConnection connection, string username, string password)
+        public static List<string> GetAllUsernames()
         {
-            var user = "";
+            var usernames = new List<string>();
+            var query = $"SELECT username FROM dbo.de_user;";
+            var connection = DatabaseUtils.CreateConnection();
 
-            var query = $"SELECT username FROM dbo.de_user WHERE username = '{username}' and password = '{password}'";
+            connection.Open();
 
             var command = new SqlCommand(query, connection);
 
+            using (var reader = command.ExecuteReader())
+            {
+                if (!reader.HasRows) return usernames;
+                while (reader.Read())
+                    usernames.Add(reader.GetString(0));
+            }
+            return usernames; 
+        }
+
+        public static string GetUserName(SqlConnection connection, string username, string password)
+        {
+            var user = "";
+            var query = $"SELECT username FROM dbo.de_user WHERE username = '{username}' and password = '{password}'";
+            var command = new SqlCommand(query, connection);
 
             using (var reader = command.ExecuteReader())
             {
@@ -67,8 +84,26 @@ namespace DigiExpress.Controllers
             return userId;
         }
 
-        public static void AddNewUser(string name, string password)
+        public static void AddNewUser(string username, string password)
         {
+            var newUserId = GetTotalusers() + 1;
+
+            var connection = DatabaseUtils.CreateConnection();
+            connection.Open();
+
+            var query = $"INSERT INTO dbo.de_user(userId, username, password) VALUES (@param1, @param2, @param3);";
+
+            using (connection)
+            {
+                SqlCommand cmd = new SqlCommand(query, connection);
+                cmd.Parameters.Add("@param1", SqlDbType.Int).Value = newUserId;
+                cmd.Parameters.Add("@param2", SqlDbType.VarChar, 40).Value = username;
+                cmd.Parameters.Add("@param3", SqlDbType.VarChar, 40).Value = password;
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
+            }
+
+            connection.Close();
 
         }
 
@@ -81,7 +116,7 @@ namespace DigiExpress.Controllers
 
             using (connection)
             {
-                const string query = "SELECT * FROM dbo.de_user;";
+                const string query = "SELECT username FROM dbo.de_user;";
                 var command = new SqlCommand(query, connection);
 
                 using (var reader = command.ExecuteReader())

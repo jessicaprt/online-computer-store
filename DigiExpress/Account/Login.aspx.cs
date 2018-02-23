@@ -37,7 +37,7 @@ namespace DigiExpress.Account
 
                 if ( (getUser == "") || (getUser == null) )
                 {
-                    InvalidLogin.Text = "Invalid Login!";
+                    InvalidLogin.Text = "Invalid username and password combination";
                 }
                 else
                 {
