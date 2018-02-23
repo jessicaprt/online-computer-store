@@ -95,13 +95,13 @@
             <footer class="footer-details">
                 <div class="row footer-content">
                     <div class="col-md-4">
-                        <a href="#">Contact us</a><br/>
-                        <a href="#">Track your order</a>
+                        <a href="ContactInfo.aspx">Contact us</a><br/>
+                        <a href="Default.aspx">Order History</a>
                     </div>
         
                     <div class="col-md-4">
-                        <a href="#">Terms and Conditions</a><br/>
-                        <a href="#">Store locations</a>
+                        <a href="TermsAndCondition.aspx">Terms and Conditions</a><br/>
+                        <a href="Location">Store locations</a>
                     </div>
                 </div>
                 

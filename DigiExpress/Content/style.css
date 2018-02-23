@@ -174,3 +174,13 @@
     margin-top: 3vh;
     margin-bottom: 20vh;
 }
+
+/** CONTACT INFO **/
+.contact-main {
+    margin-top: 30px;
+}
+
+/** TERMS AND CONDITION **/
+.terms p {
+    text-indent: 50px;
+}
