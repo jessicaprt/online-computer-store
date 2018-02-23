@@ -4,8 +4,9 @@
     <%--<h3>Customize your own computer:</h3>--%>
     <div class="row deals-main container">
         <div class="deals-coupon">
-            <h1>Get a 10% off coupon</h1><br />
-            <a class="btn btn-default" href="#">Click here to claim deal &raquo;</a>
+            <h1>Don't miss it!</h1><br />
+            <h3>DigiExpress Sale event on February 29-31, 2018</h3>
+            <h3>50% all computers!</h3>
         </div>
     </div>
 </asp:Content>
