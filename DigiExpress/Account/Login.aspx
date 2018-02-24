@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="DigiExpress.Account.Login" Async="true" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
-    <h2><%: Title %> </h2>
+    <h2 class="color-primary"><%: Title %> </h2>
 
     <div class="row login-main">
         <div class="col-md-8"> 
