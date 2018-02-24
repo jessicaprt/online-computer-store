@@ -200,6 +200,14 @@
 }
 
 /** forgot password **/
-.password {
-    padding: 50px 0;
+.password { padding: 50px 0; }
+
+/** CONTACT INFO **/
+.contact-main {
+    margin-top: 30px;
+}
+
+/** TERMS AND CONDITION **/
+.terms p {
+    text-indent: 50px;
 }

@@ -185,6 +185,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="de_icon.ico" />
     <Content Include="OrdersHistory.aspx" />
     <Content Include="Content\style.css" />
     <Content Include="images\map.jpg" />
@@ -194,13 +195,14 @@
     <Content Include="images\winbook.png" />
     <Content Include="Deals.aspx" />
     <Content Include="OrderMessage.aspx" />
+    <Content Include="ContactInfo.aspx" />
+    <Content Include="TermsAndCondition.aspx" />
     <Content Include="Shop_Desktop.aspx" />
     <Content Include="Shop_Laptop.aspx" />
     <Content Include="Shop.aspx" />
     <Content Include="Account\Forgot.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="Account\ResetPassword.aspx" />
     <Content Include="Location.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -287,13 +289,6 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Account\ResetPassword.aspx.cs">
-      <DependentUpon>ResetPassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\ResetPassword.aspx.designer.cs">
-      <DependentUpon>ResetPassword.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\RenderItemController.cs" />
     <Compile Include="Models\RenderedOrderItem.cs" />
@@ -316,6 +311,20 @@
     </Compile>
     <Compile Include="Deals.aspx.designer.cs">
       <DependentUpon>Deals.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ContactInfo.aspx.cs">
+      <DependentUpon>ContactInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ContactInfo.aspx.designer.cs">
+      <DependentUpon>ContactInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TermsAndCondition.aspx.cs">
+      <DependentUpon>TermsAndCondition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermsAndCondition.aspx.designer.cs">
+      <DependentUpon>TermsAndCondition.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Computers.cs" />

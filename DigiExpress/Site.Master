@@ -12,7 +12,7 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/de_icon.ico" rel="shortcut icon" type="image/x-icon" />
     <link href="/Content/style.css" rel="stylesheet">
 
     <script type = 'text/javascript' >
@@ -78,9 +78,9 @@
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/OrdersHistory">Hello, <%: Context.User.Identity.GetUserName()  %>!</a></li>
+                                <li><a runat="server" href="~/OrdersHistory.aspx">Hello, <%: Context.User.Identity.GetUserName()  %>!</a></li>
                                 
-                                <li><a runat="server" href="~/Cart">View Cart</a></li>
+                                <li><a runat="server" href="~/Cart.aspx">View Cart</a></li>
 
                                 <li>
                                     <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
@@ -99,13 +99,13 @@
             <footer class="footer-details">
                 <div class="row footer-content">
                     <div class="col-md-4">
-                        <a href="#">Contact us</a><br/>
-                        <a href="#">Track your order</a>
+                        <a href="~/ContactInfo.aspx">Contact us</a><br/>
+                        <a href="~/OrdersHistory.aspx">Order History</a>
                     </div>
         
                     <div class="col-md-4">
-                        <a href="#">Terms and Conditions</a><br/>
-                        <a href="#">Store locations</a>
+                        <a href="~/TermsAndCondition.aspx">Terms and Conditions</a><br/>
+                        <a href="~/Location.aspx">Store locations</a>
                     </div>
                 </div>
                 

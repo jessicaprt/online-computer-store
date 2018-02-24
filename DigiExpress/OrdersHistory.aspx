@@ -7,7 +7,7 @@
         }
     </style>
     <div>
-        <div class="form-title"><h3>Orders History</h3></div>
+        <div class="form-title color-primary"><h3>Orders History</h3></div>
         <hr />
         <asp:ListView ID="OrdersListView" runat="server" DataSourceID="ObjectDataSource1"  >
             

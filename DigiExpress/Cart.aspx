@@ -7,7 +7,7 @@
         }
     </style>
     <div>
-        <div class="form-title"><h3>Your Shopping Cart</h3></div>
+        <div class="form-title color-primary"><h3>Your Shopping Cart</h3></div>
         <hr />
         <asp:ListView ID="ListView1" runat="server" DataSourceID="ObjectDataSource1" OnSelectedIndexChanged="ListView1_SelectedIndexChanged" >
             <EditItemTemplate>

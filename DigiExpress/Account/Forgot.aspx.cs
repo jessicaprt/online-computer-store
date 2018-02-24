@@ -13,15 +13,23 @@ namespace DigiExpress.Account
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            DisplayPassword1.Text = "";
+            DisplayPasswordText.Text = "";
         }
 
         protected void Forgot(object sender, EventArgs e)
         {
             var currentUsername = Username.Text;
             var password = UserController.RetrievePassword(currentUsername);
-            DisplayPassword1.Text = "Your password is: ";
-
-            DisplayPasswordText.Text = $"{password}";
+            if (string.IsNullOrEmpty(password))
+            {
+                DisplayPassword1.Text = "<p class='text-danger'>username not found</p>";
+            }
+            else
+            {
+                DisplayPassword1.Text = "Your password is: ";
+                DisplayPasswordText.Text = $"{password}";
+            }
         }
     }
 }
