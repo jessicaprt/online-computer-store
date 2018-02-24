@@ -13,6 +13,11 @@ namespace DigiExpress.Account
 {
     public partial class Register : Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            ErrorMessage1.Text = "";
+        }
+
         protected void CreateUser_Click(object sender, EventArgs e)
         {
             var newUser = Username.Text;
