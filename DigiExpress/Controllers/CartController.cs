@@ -38,9 +38,8 @@ namespace DigiExpress.Controllers
                         cartItems.Add(cartItem);
                     }
                 }
+                reader.Close();
             }
-
-            connection.Close();
             return cartItems;
         }
 
@@ -68,9 +67,10 @@ namespace DigiExpress.Controllers
                         cartItem.Price = reader.GetInt32(3);
                     }
                 }
-            }
 
-            connection.Close();
+                reader.Close();
+            }
+            
             return cartItem;
         }
 

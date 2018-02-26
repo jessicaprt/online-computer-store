@@ -38,9 +38,9 @@ namespace DigiExpress.Controllers
                         orderItems.Add(orderItem);
                     }
                 }
+                reader.Close();
             }
-
-            connection.Close();
+            
             return orderItems;
         }
 

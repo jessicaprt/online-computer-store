@@ -25,9 +25,8 @@ namespace DigiExpress.Controllers
                     while (reader.Read())
                         counter++;
                 }
+                reader.Close();
             }
-
-            connection.Close();
             return counter;
         }
 
@@ -86,6 +85,7 @@ namespace DigiExpress.Controllers
                         computer.Part5 = reader.GetString(8);
                     }
                 }
+                reader.Close();
             }
 
             return computer;

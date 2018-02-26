@@ -24,6 +24,7 @@ namespace DigiExpress.Controllers
                     user.UserName = reader.GetString(1);
                     user.Password = reader.GetString(2);
                 }
+                reader.Close();
             }
             return user;
         }
@@ -43,6 +44,8 @@ namespace DigiExpress.Controllers
                 if (!reader.HasRows) return usernames;
                 while (reader.Read())
                     usernames.Add(reader.GetString(0));
+
+                reader.Close();
             }
             return usernames; 
         }
@@ -58,6 +61,8 @@ namespace DigiExpress.Controllers
                 if (!reader.HasRows) return user;
                 while (reader.Read())
                     user = reader.GetString(0);
+
+                reader.Close();
             }
             return user;
         }
@@ -79,6 +84,8 @@ namespace DigiExpress.Controllers
                 if (!reader.HasRows) return userId;
                 while (reader.Read())
                     userId = reader.GetInt32(0);
+
+                reader.Close();
             }
 
             return userId;
