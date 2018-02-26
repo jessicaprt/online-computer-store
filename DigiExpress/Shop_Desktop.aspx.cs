@@ -28,14 +28,9 @@ namespace DigiExpress
                 Response.Redirect("~/Account/Login.aspx", true);
             }
 
-            var connection = DatabaseUtils.CreateConnection();
-            connection.Open();
-
-            LoadComputerParts(connection);
-
             if (!Page.IsPostBack)
-            {
-                LoadComputerParts(connection);
+            {   
+                LoadComputerParts();
                 VideoCard.Items.Clear();
                 Processor.Items.Clear();
                 RamSize.Items.Clear();
@@ -49,16 +44,16 @@ namespace DigiExpress
                 LoadOs();
                 CalculateTotal();
             }
-            connection.Close();
+            
         }
 
-        public void LoadComputerParts(SqlConnection connection)
+        public void LoadComputerParts()
         {
-            _videoCards = ComputerPartsController.GetComputerPart(connection, "videocard");
-            _processors = ComputerPartsController.GetComputerPart(connection, "processor");
-            _rams = ComputerPartsController.GetComputerPart(connection, "ram");
-            _ssds = ComputerPartsController.GetComputerPart(connection, "ssd");
-            _osi = ComputerPartsController.GetComputerPart(connection, "os");
+            _videoCards = ComputerPartsController.GetComputerPart("videocard");
+            _processors = ComputerPartsController.GetComputerPart("processor");
+            _rams = ComputerPartsController.GetComputerPart("ram");
+            _ssds = ComputerPartsController.GetComputerPart("ssd");
+            _osi = ComputerPartsController.GetComputerPart("os");
         }
 
         public void LoadVideoCards()
@@ -141,6 +136,8 @@ namespace DigiExpress
 
         protected void AddToCart(object sender, EventArgs e)
         {
+            LoadComputerParts();
+
             var desktop = new Computer();
 
             desktop.ComputerType = "desktop";

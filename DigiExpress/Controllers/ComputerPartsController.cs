@@ -10,8 +10,10 @@ namespace DigiExpress.Controllers
 {
     public class ComputerPartsController
     {
-        public static List<ComputerParts> GetComputerPart(SqlConnection connection, string typeName)
+        public static List<ComputerParts> GetComputerPart(string typeName)
         {
+            var connection = DatabaseUtils.CreateConnection();
+            connection.Open();
 
             List<ComputerParts> parts = new List<ComputerParts>();
 
@@ -36,6 +38,7 @@ namespace DigiExpress.Controllers
                         parts.Add(curr);
                     }
                 }
+                reader.Close();
             }
                 
 

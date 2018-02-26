@@ -29,14 +29,9 @@ namespace DigiExpress
                 Response.Redirect("~/Account/Login.aspx", true);
             }
 
-            var connection = DatabaseUtils.CreateConnection();
-            connection.Open();
-
-            LoadComputerParts(connection);
-
             if (!Page.IsPostBack)
-            {
-                LoadComputerParts(connection);
+            { 
+                LoadComputerParts();
                 ScreenSize.Items.Clear();
                 Processor.Items.Clear();
                 RamSize.Items.Clear();
@@ -50,16 +45,16 @@ namespace DigiExpress
                 LoadOs();
                 CalculateTotal();
             }
-            connection.Close();
+            
         }
 
-        public void LoadComputerParts(SqlConnection connection)
+        public void LoadComputerParts()
         {
-            _screenSizes = ComputerPartsController.GetComputerPart(connection, "screen");
-            _processors = ComputerPartsController.GetComputerPart(connection, "processor");
-            _rams = ComputerPartsController.GetComputerPart(connection, "ram");
-            _ssds = ComputerPartsController.GetComputerPart(connection, "ssd");
-            _osi = ComputerPartsController.GetComputerPart(connection, "os");
+            _screenSizes = ComputerPartsController.GetComputerPart("screen");
+            _processors = ComputerPartsController.GetComputerPart("processor");
+            _rams = ComputerPartsController.GetComputerPart("ram");
+            _ssds = ComputerPartsController.GetComputerPart("ssd");
+            _osi = ComputerPartsController.GetComputerPart("os");
         }
 
         public void LoadScreenSizes()
@@ -142,6 +137,8 @@ namespace DigiExpress
 
         protected void AddToCart(object sender, EventArgs e)
         {
+            LoadComputerParts();
+
             var laptop = new Computer();
 
             laptop.ComputerType = "laptop";
