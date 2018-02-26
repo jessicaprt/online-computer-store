@@ -119,6 +119,7 @@ namespace DigiExpress
         protected void AddToCart(object sender, EventArgs e)
         {
             GetParts();
+            CalculateTotal();
 
             Session["computer"] = "laptop";
             Session["part1"] = _screenSizes.Keys.ElementAt(ScreenSize.SelectedIndex);
@@ -126,6 +127,8 @@ namespace DigiExpress
             Session["part3"] = _rams.Keys.ElementAt(RamSize.SelectedIndex);
             Session["part4"] = _ssds.Keys.ElementAt(SsdCapacity.SelectedIndex);
             Session["part5"] = _os.Keys.ElementAt(OperatingSystem.SelectedIndex);
+            Session["price"] = _total;
+
             Response.Redirect("Cart.aspx");
         }
     }

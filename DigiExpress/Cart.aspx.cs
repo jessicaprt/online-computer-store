@@ -23,6 +23,7 @@ namespace DigiExpress
                 Part3.Text = Session["part3"].ToString();
                 Part4.Text = Session["part4"].ToString();
                 Part5.Text = Session["part5"].ToString();
+                Price.Text = $"<strong>Price</strong> : ${Session["price"]}.00";
             }
         }
     }
