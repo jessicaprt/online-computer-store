@@ -17,7 +17,7 @@
                 <p>
                     WinBook premium laptops are the best on the market! Modify your parts and get the laptop that's perfect for you!
                 <p>
-                    <a class="btn btn-default" href="./Shop_Laptop">Shop laptops &raquo;</a>
+                    <a class="btn btn-default" href="./ShopLaptop.aspx">Shop laptops &raquo;</a>
                 </p>
             </div>
         </div>
@@ -30,7 +30,7 @@
                     perfect for any of your workload!
                 </p>
                 <p>
-                    <a class="btn btn-default" href="./Shop_Desktop">Shop desktops &raquo;</a>
+                    <a class="btn btn-default" href="./ShopDesktop.aspx">Shop desktops &raquo;</a>
                 </p>
             </div>
         </div>
@@ -42,7 +42,7 @@
                     Don't want to shop online? Check out our store location so that you can see a WinBook product yourself! You can also go to the store for any servicing needs.
                 </p>
                 <p>
-                    <a class="btn btn-default" href="./Location">Store locator &raquo;</a>
+                    <a class="btn btn-default" href="./Location.aspx">Store locator &raquo;</a>
                 </p>
             </div>
         </div>

@@ -4,7 +4,7 @@
     <%--<h3>Customize your own computer:</h3>--%>
     <div class="row shop-main">
         <div class="col-md-6 shop-page-sec">
-            <a href="Shop_Laptop.aspx"><div class="shop-box">
+            <a href="ShopLaptop.aspx"><div class="shop-box">
                 <div class="shop-box">
                     <div class="shop-page-image" id="laptop-shop-page"></div>
                     <div class="shop-box-details">
@@ -15,7 +15,7 @@
         </div>
 
         <div class="col-md-6 shop-page-sec">
-            <a href="Shop_Desktop.aspx"><div class="shop-box">
+            <a href="ShopDesktop.aspx"><div class="shop-box">
                 <div class="shop-page-image" id="desktop-shop-page">
                 </div>
                 <div class="shop-box-details">

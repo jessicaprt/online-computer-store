@@ -191,13 +191,11 @@
     <Content Include="images\winbook.png" />
     <Content Include="Deals.aspx" />
     <Content Include="ContactInfo.aspx" />
+    <Content Include="Cart.aspx" />
     <Content Include="TermsAndCondition.aspx" />
-    <Content Include="Shop_Desktop.aspx" />
-    <Content Include="Shop_Laptop.aspx" />
+    <Content Include="ShopDesktop.aspx" />
+    <Content Include="ShopLaptop.aspx" />
     <Content Include="Shop.aspx" />
-    <Content Include="Account\Forgot.aspx" />
-    <Content Include="Account\Login.aspx" />
-    <Content Include="Account\Register.aspx" />
     <Content Include="Location.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -206,7 +204,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Account\Web.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -252,7 +249,6 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Site.Mobile.Master" />
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -262,27 +258,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Account\Forgot.aspx.cs">
-      <DependentUpon>Forgot.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Forgot.aspx.designer.cs">
-      <DependentUpon>Forgot.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Account\Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Account\Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Deals.aspx.cs">
       <DependentUpon>Deals.aspx</DependentUpon>
@@ -298,6 +273,13 @@
     <Compile Include="ContactInfo.aspx.designer.cs">
       <DependentUpon>ContactInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TermsAndCondition.aspx.cs">
       <DependentUpon>TermsAndCondition.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -305,19 +287,19 @@
     <Compile Include="TermsAndCondition.aspx.designer.cs">
       <DependentUpon>TermsAndCondition.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Shop_Desktop.aspx.cs">
-      <DependentUpon>Shop_Desktop.aspx</DependentUpon>
+    <Compile Include="ShopDesktop.aspx.cs">
+      <DependentUpon>ShopDesktop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Shop_Desktop.aspx.designer.cs">
-      <DependentUpon>Shop_Desktop.aspx</DependentUpon>
+    <Compile Include="ShopDesktop.aspx.designer.cs">
+      <DependentUpon>ShopDesktop.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Shop_Laptop.aspx.cs">
-      <DependentUpon>Shop_Laptop.aspx</DependentUpon>
+    <Compile Include="ShopLaptop.aspx.cs">
+      <DependentUpon>ShopLaptop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Shop_Laptop.aspx.designer.cs">
-      <DependentUpon>Shop_Laptop.aspx</DependentUpon>
+    <Compile Include="ShopLaptop.aspx.designer.cs">
+      <DependentUpon>ShopLaptop.aspx</DependentUpon>
     </Compile>
     <Compile Include="Shop.aspx.cs">
       <DependentUpon>Shop.aspx</DependentUpon>
@@ -354,13 +336,6 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.designer.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">

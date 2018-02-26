@@ -10,69 +10,60 @@
 namespace DigiExpress {
     
     
-    public partial class Shop_Desktop {
+    public partial class Cart {
         
         /// <summary>
-        /// Image1 control.
+        /// Image control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Label Image;
         
         /// <summary>
-        /// VideoCard control.
+        /// Part1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList VideoCard;
+        protected global::System.Web.UI.WebControls.Label Part1;
         
         /// <summary>
-        /// Processor control.
+        /// Part2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Processor;
+        protected global::System.Web.UI.WebControls.Label Part2;
         
         /// <summary>
-        /// RamSize control.
+        /// Part3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList RamSize;
+        protected global::System.Web.UI.WebControls.Label Part3;
         
         /// <summary>
-        /// SsdCapacity control.
+        /// Part4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList SsdCapacity;
+        protected global::System.Web.UI.WebControls.Label Part4;
         
         /// <summary>
-        /// OperatingSystem control.
+        /// Part5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList OperatingSystem;
-        
-        /// <summary>
-        /// SubmitButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button SubmitButton;
+        protected global::System.Web.UI.WebControls.Label Part5;
     }
 }

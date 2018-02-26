@@ -132,6 +132,7 @@
 
 .shop-disp-image {
     margin-top: 30px;
+    width: 20vw;
 }
 
 .shop-form-main {
@@ -153,6 +154,16 @@
 
 .location-details {
     margin-top: 15px;
+}
+
+/* CART */
+.cart-main {
+    margin-top: 50px;
+    height: 70vh;
+}
+
+.cart-details {
+    margin-top: 90px;
 }
 
 /* DEALS */
